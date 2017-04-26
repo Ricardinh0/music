@@ -1,10 +1,10 @@
 import React from 'react';
 import AudioContext from '../../utils/utils.audioContext';
+import Qwerty from '../Qwerty/Qwerty';
 
 const MusicApplication = ({
   ui
 }) => {
-
 
   const ctx = new AudioContext();
   const master = ctx.createGain();
@@ -12,7 +12,8 @@ const MusicApplication = ({
 
   return (
     <div>
-      {ui}
+      <div>{ui}</div>
+      <Qwerty />
     </div>
   );
 };

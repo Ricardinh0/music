@@ -1,0 +1,48 @@
+.row {
+
+}
+.key {
+  position:relative;
+  background:#333;
+  border:3px solid transparent;
+  color:#FFF;
+  border-radius:4px;
+  margin:2px;
+  padding:0 20px 20px 0;
+  width:40px;
+  height:40px;
+  font-size:11px;
+  text-transform:uppercase;
+  &:hover{
+    background:#000;
+  }
+  &:active,
+  &:focus{
+    outline:0;
+  }
+  &:active{
+    box-shadow:inset 0 0 6px rgba(0,0,0,.4);
+  }
+  &:after{
+    font-family:'Glyphicons Halflings';
+    position:absolute;
+    display:block;
+    content:'';
+    width:10px;
+    height:10px;
+    bottom:5px;
+    right:5px;
+    font-size:8px;
+  }
+}
+
+.key-lg,
+.key-md,
+.key-xlg{
+  padding:0 5px 20px;
+  text-transform:lowercase;
+}
+
+.key-md{width:75px}
+.key-lg{width:80px}
+.key-xlg{width:102px}
