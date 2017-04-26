@@ -1,6 +1,5 @@
 const path = require('path');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const vendors = [
   'babel-polyfill',
@@ -11,11 +10,9 @@ const bundle = function(app) {
   const files = vendors.concat([app]);
   return files;
 };
-
 module.exports = {
-  context: path.resolve(__dirname, './app/assets/javascripts/'),
+  context: path.resolve(__dirname, './app/client/'),
   entry: {
-    'avatar-editor': bundle('./AvatarEditor/AvatarEditor'),
     'index': bundle('./')
   },
   resolve: {
@@ -28,27 +25,39 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /.jsx?$/,
+        test: /.(js|jsx)?$/,
         loader: 'babel-loader',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015', 'react']
-        }
+        exclude: /node_modules/
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract(
-          'css!sass!postcss'
-        )
-      },
+        test: /\.(scss|sass)$/,
+        loader: ExtractTextPlugin.extract({
+          fallback: [{
+            loader: 'style-loader',
+          }],
+          use: [
+            {
+              loader: "css-loader",
+              options: {
+                localIdentName: '[folder]__[local]__[hash:base64]',
+                modules: true
+              }
+            },
+            {
+              loader: "sass-loader"
+            },
+            {
+              loader: "postcss-loader"
+            }
+          ]
+        })
+      }
     ],
   },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: '[name].bundle.js',
+    sourceMapFilename: '[name].bundle.js.map',
     publicPath: '/dist'
-  },
-  devServer: {
-    contentBase: path.resolve(__dirname, './app')
   }
 };
