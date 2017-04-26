@@ -1,42 +1,54 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AudioContext from '../../utils/utils.audioContext';
 import Qwerty from '../Qwerty/Qwerty';
 
-const MusicApplication = ({
-  ui
-}) => {
+class MusicApplication extends Component {
 
-  const ctx = new AudioContext();
-  const master = ctx.createGain();
-  master.connect(ctx.destination);
+  constructor(props) {
+    super(props);
+  }
 
-  return (
-    <div>
-      <div>{ui}</div>
-      <Qwerty />
-    </div>
-  );
+  componentWillMount(){
+    const { handleKeyUppp, handleKeyPress } = this;
+    document.addEventListener('keyup', handleKeyUppp);
+    document.addEventListener('keypress', handleKeyPress);
+  }
+
+  componentWillUnmount() {
+    const { handleKeyUppp, handleKeyPress } = this;
+    document.removeEventListener('keyup', handleKeyUppp);
+    document.removeEventListener('keypress', handleKeyPress);
+  }
+
+   handleKeyUppp = e => {
+    const {
+      handleKeyUp
+    } = this.props;
+
+    handleKeyUp();
+  };
+
+   handleKeyPress = e => {
+    console.log(e);
+  };
+
+  render() {
+    
+    const {
+      ui
+    } = this.props;
+
+    const ctx = new AudioContext();
+    const master = ctx.createGain();
+    master.connect(ctx.destination);
+
+    return (
+      <div>
+        <div>{ui}</div>
+        <Qwerty />
+      </div>
+    );
+  }
 };
 
 export default MusicApplication;
-
-
-
-/**
-*
-*   Setup AudioContext
-*
-*/
-//const AudioContext = window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
-/*
-  componentWillMount(){
-      BannerDataStore.addChangeListener(this._onchange);
-      document.addEventListener("click", this._handleDocumentClick, false);
-      document.addEventListener("keydown", this._handleKeyDown.bind(this));
-  },
-  componentWillUnmount() {
-      BannerDataStore.removeChangeListener(this._onchange);
-      document.removeEventListener("click", this._handleDocumentClick, false);
-      document.removeEventListener("keydown", this._handleKeyDown.bind(this));
-  },
-*/
