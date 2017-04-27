@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    handleKeyUp: () => dispatch(keyUp())
+    handleKeyUp: e => dispatch(keyUp(e))
   });
 }
 

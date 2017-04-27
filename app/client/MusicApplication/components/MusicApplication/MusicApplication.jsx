@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import AudioContext from '../../utils/utils.audioContext';
 import Qwerty from '../Qwerty/Qwerty';
 
+const ctx = new AudioContext();
+const master = ctx.createGain();
+master.connect(ctx.destination);
+
 class MusicApplication extends Component {
 
   constructor(props) {
@@ -9,42 +13,31 @@ class MusicApplication extends Component {
   }
 
   componentWillMount(){
-    const { handleKeyUppp, handleKeyPress } = this;
-    document.addEventListener('keyup', handleKeyUppp);
+    const { handleKeyPress } = this;
+    const { handleKeyUp } = this.props;
+    document.addEventListener('keyup', handleKeyUp);
     document.addEventListener('keypress', handleKeyPress);
   }
 
   componentWillUnmount() {
-    const { handleKeyUppp, handleKeyPress } = this;
-    document.removeEventListener('keyup', handleKeyUppp);
+    const { handleKeyPress } = this;
+    const { handleKeyUp } = this.props;
+    document.removeEventListener('keyup', handleKeyUp);
     document.removeEventListener('keypress', handleKeyPress);
   }
 
-   handleKeyUppp = e => {
-    const {
-      handleKeyUp
-    } = this.props;
-
-    handleKeyUp();
-  };
-
-   handleKeyPress = e => {
-    console.log(e);
-  };
+  handleKeyPress = e => {};
 
   render() {
-    
     const {
-      ui
+      ui,
+      keys
     } = this.props;
-
-    const ctx = new AudioContext();
-    const master = ctx.createGain();
-    master.connect(ctx.destination);
 
     return (
       <div>
         <div>{ui}</div>
+        <div>{keys.active}</div>
         <Qwerty />
       </div>
     );

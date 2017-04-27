@@ -5,11 +5,8 @@ export const getKeys = state => ({
 });
 
 const keys = (state = {
-
+  active: ''
 }, action) => {
-
-  debugger;
-
   switch (action.type) {
     case types.MUSIC_APP_KEYPRESS:
       return state;
@@ -18,6 +15,13 @@ const keys = (state = {
     case types.MUSIC_APP_KEYDEPRESSED:
       return state;
     case types.MUSIC_APP_KEYUP:
+      return {
+        ...state,
+        active: action.data.key
+      };
+    case types.MUSIC_APP_KEY_ACTIVATE:
+      return state;
+    case types.MUSIC_APP_KEY_DEACTIVATE:
       return state;
     default:
       return state;
