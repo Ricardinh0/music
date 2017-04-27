@@ -1,101 +1,396 @@
-const keyMap = {
-  '8': 'backspace',
-  '9': 'tab',
-  '13': 'enter',
-  '16': 'shift',
-  '17': 'ctrl',
-  '18': 'alt',
-  '19': 'pause_break',
-  '20': 'caps_lock',
-  '27': 'escape',
-  '33': 'page_up',
-  '34': 'page down',
-  '35': 'end',
-  '36': 'home',
-  '37': 'left_arrow',
-  '38': 'up_arrow',
-  '39': 'right_arrow',
-  '40': 'down_arrow',
-  '45': 'insert',
-  '46': 'delete',
-  '48': '0',
-  '49': '1',
-  '50': '2',
-  '51': '3',
-  '52': '4',
-  '53': '5',
-  '54': '6',
-  '55': '7',
-  '56': '8',
-  '57': '9',
-  '65': 'a',
-  '66': 'b',
-  '67': 'c',
-  '68': 'd',
-  '69': 'e',
-  '70': 'f',
-  '71': 'g',
-  '72': 'h',
-  '73': 'i',
-  '74': 'j',
-  '75': 'k',
-  '76': 'l',
-  '77': 'm',
-  '78': 'n',
-  '79': 'o',
-  '80': 'p',
-  '81': 'q',
-  '82': 'r',
-  '83': 's',
-  '84': 't',
-  '85': 'u',
-  '86': 'v',
-  '87': 'w',
-  '88': 'x',
-  '89': 'y',
-  '90': 'z',
-  '91' : 'left_window_key',
-  '92' : 'right_window_key',
-  '93' : 'select_key',
-  '96' : 'numpad_0',
-  '97' : 'numpad_1',
-  '98' : 'numpad_2',
-  '99' : 'numpad_3',
-  '100' : 'numpad_4',
-  '101' : 'numpad_5',
-  '102' : 'numpad_6',
-  '103' : 'numpad_7',
-  '104' : 'numpad_8',
-  '105' : 'numpad_9',
-  '106' : 'multiply',
-  '107' : 'add',
-  '109' : 'subtract',
-  '110' : 'decimal_point',
-  '111' : 'divide',
-  '112' : 'f1',
-  '113' : 'f2',
-  '114' : 'f3',
-  '115' : 'f4',
-  '116' : 'f5',
-  '117' : 'f6',
-  '118' : 'f7',
-  '119' : 'f8',
-  '120' : 'f9',
-  '121' : 'f10',
-  '122' : 'f11',
-  '123' : 'f12',
-  '144' : 'num_lock',
-  '145' : 'scroll_lock',
-  '186' : 'semi_colon',
-  '187' : 'equal_sign',
-  '188' : 'comma',
-  '189' : 'dash',
-  '190' : 'period',
-  '191' : 'forward_slash',
-  '192' : 'grave_accent',
-  '219' : 'open_bracket',
-  '220' : 'backslash',
-  '221' : 'closebracket',
-  '222' : 'single_quote'
-};
+const keyMap = [
+  {
+    keyCode: 8,
+    active: false
+  },
+  {
+    keyCode: 9,
+    active: false
+  },
+  {
+    keyCode: 13,
+    active: false
+  },
+  {
+    keyCode: 16,
+    active: false
+  },
+  {
+    keyCode: 17,
+    active: false
+  },
+  {
+    keyCode: 18,
+    active: false
+  },
+  {
+    keyCode: 19,
+    active: false
+  },
+  {
+    keyCode: 20,
+    active: false
+  },
+  {
+    keyCode: 27,
+    active: false
+  },
+  {
+    keyCode: 33,
+    active: false
+  },
+  {
+    keyCode: 34,
+    active: false
+  },
+  {
+    keyCode: 35,
+    active: false
+  },
+  {
+    keyCode: 36,
+    active: false
+  },
+  {
+    keyCode: 37,
+    active: false
+  },
+  {
+    keyCode: 38,
+    active: false
+  },
+  {
+    keyCode: 39,
+    active: false
+  },
+  {
+    keyCode: 40,
+    active: false
+  },
+  {
+    keyCode: 45,
+    active: false
+  },
+  {
+    keyCode: 46,
+    active: false
+  },
+  {
+    keyCode: 48,
+    active: false
+  },
+  {
+    keyCode: 49,
+    active: false
+  },
+  {
+    keyCode: 50,
+    active: false
+  },
+  {
+    keyCode: 51,
+    active: false
+  },
+  {
+    keyCode: 52,
+    active: false
+  },
+  {
+    keyCode: 53,
+    active: false
+  },
+  {
+    keyCode: 54,
+    active: false
+  },
+  {
+    keyCode: 55,
+    active: false
+  },
+  {
+    keyCode: 56,
+    active: false
+  },
+  {
+    keyCode: 57,
+    active: false
+  },
+  {
+    keyCode: 65,
+    active: false
+  },
+  {
+    keyCode: 66,
+    active: false
+  },
+  {
+    keyCode: 67,
+    active: false
+  },
+  {
+    keyCode: 68,
+    active: false
+  },
+  {
+    keyCode: 69,
+    active: false
+  },
+  {
+    keyCode: 70,
+    active: false
+  },
+  {
+    keyCode: 71,
+    active: false
+  },
+  {
+    keyCode: 72,
+    active: false
+  },
+  {
+    keyCode: 73,
+    active: false
+  },
+  {
+    keyCode: 74,
+    active: false
+  },
+  {
+    keyCode: 75,
+    active: false
+  },
+  {
+    keyCode: 76,
+    active: false
+  },
+  {
+    keyCode: 77,
+    active: false
+  },
+  {
+    keyCode: 78,
+    active: false
+  },
+  {
+    keyCode: 79,
+    active: false
+  },
+  {
+    keyCode: 80,
+    active: false
+  },
+  {
+    keyCode: 81,
+    active: false
+  },
+  {
+    keyCode: 82,
+    active: false
+  },
+  {
+    keyCode: 83,
+    active: false
+  },
+  {
+    keyCode: 84,
+    active: false
+  },
+  {
+    keyCode: 85,
+    active: false
+  },
+  {
+    keyCode: 86,
+    active: false
+  },
+  {
+    keyCode: 87,
+    active: false
+  },
+  {
+    keyCode: 88,
+    active: false
+  },
+  {
+    keyCode: 89,
+    active: false
+  },
+  {
+    keyCode: 90,
+    active: false
+  },
+  {
+    keyCode: 91,
+    active: false
+  },
+  {
+    keyCode: 92,
+    active: false
+  },
+  {
+    keyCode: 93,
+    active: false
+  },
+  {
+    keyCode: 96,
+    active: false
+  },
+  {
+    keyCode: 97,
+    active: false
+  },
+  {
+    keyCode: 98,
+    active: false
+  },
+  {
+    keyCode: 99,
+    active: false
+  },
+  {
+    keyCode: 100,
+    active: false
+  },
+  {
+    keyCode: 101,
+    active: false
+  },
+  {
+    keyCode: 102,
+    active: false
+  },
+  {
+    keyCode: 103,
+    active: false
+  },
+  {
+    keyCode: 104,
+    active: false
+  },
+  {
+    keyCode: 105,
+    active: false
+  },
+  {
+    keyCode: 106,
+    active: false
+  },
+  {
+    keyCode: 107,
+    active: false
+  },
+  {
+    keyCode: 109,
+    active: false
+  },
+  {
+    keyCode: 110,
+    active: false
+  },
+  {
+    keyCode: 111,
+    active: false
+  },
+  {
+    keyCode: 112,
+    active: false
+  },
+  {
+    keyCode: 113,
+    active: false
+  },
+  {
+    keyCode: 114,
+    active: false
+  },
+  {
+    keyCode: 115,
+    active: false
+  },
+  {
+    keyCode: 116,
+    active: false
+  },
+  {
+    keyCode: 117,
+    active: false
+  },
+  {
+    keyCode: 118,
+    active: false
+  },
+  {
+    keyCode: 119,
+    active: false
+  },
+  {
+    keyCode: 120,
+    active: false
+  },
+  {
+    keyCode: 121,
+    active: false
+  },
+  {
+    keyCode: 122,
+    active: false
+  },
+  {
+    keyCode: 123,
+    active: false
+  },
+  {
+    keyCode: 144,
+    active: false
+  },
+  {
+    keyCode: 145,
+    active: false
+  },
+  {
+    keyCode: 186,
+    active: false
+  },
+  {
+    keyCode: 187,
+    active: false
+  },
+  {
+    keyCode: 188,
+    active: false
+  },
+  {
+    keyCode: 189,
+    active: false
+  },
+  {
+    keyCode: 190,
+    active: false
+  },
+  {
+    keyCode: 191,
+    active: false
+  },
+  {
+    keyCode: 192,
+    active: false
+  },
+  {
+    keyCode: 219,
+    active: false
+  },
+  {
+    keyCode: 220,
+    active: false
+  },
+  {
+    keyCode: 221,
+    active: false
+  },
+  {
+    keyCode: 222,
+    active: false
+  }
+];
+
 export default keyMap;

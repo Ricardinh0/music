@@ -4,6 +4,5 @@ plugins:
   - jsx-a11y
   - import
 rules:
-  # Possible Errors
   comma-dangle:
     - off

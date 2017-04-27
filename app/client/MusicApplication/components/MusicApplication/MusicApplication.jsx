@@ -12,32 +12,33 @@ class MusicApplication extends Component {
     super(props);
   }
 
-  componentWillMount(){
-    const { handleKeyPress } = this;
-    const { handleKeyUp } = this.props;
+  componentWillMount() {
+    const { handleKeyUp, handleKeyDown } = this.props;
     document.addEventListener('keyup', handleKeyUp);
-    document.addEventListener('keypress', handleKeyPress);
+    document.addEventListener('keydown', handleKeyDown);
   }
 
   componentWillUnmount() {
-    const { handleKeyPress } = this;
-    const { handleKeyUp } = this.props;
+    const { handleKeyUp, handleKeyDown } = this.props;
     document.removeEventListener('keyup', handleKeyUp);
-    document.removeEventListener('keypress', handleKeyPress);
+    document.removeEventListener('keydown', handleKeyDown);
   }
-
-  handleKeyPress = e => {};
 
   render() {
     const {
       ui,
       keys
     } = this.props;
-
     return (
       <div>
         <div>{ui}</div>
-        <div>{keys.active}</div>
+        <div>
+          {keys.map((obj, i) => 
+            <div key={i} style={{background: obj.active ? 'red' : ''}}>
+              {obj.keyCode}
+            </div>
+          )}
+        </div>
         <Qwerty />
       </div>
     );
