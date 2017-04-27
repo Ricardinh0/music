@@ -1,7 +1,9 @@
 import { connect } from 'react-redux';
 import {
   keyDown,
-  keyUp
+  keyUp,
+  keyActivate,
+  keyDeactivate
 } from '../actions/actionCreators';
 import { getUI } from '../reducers/ui';
 import { getKeys } from '../reducers/keys';
@@ -17,7 +19,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return ({
     handleKeyUp: e => dispatch(keyUp(e)),
-    handleKeyDown: e => dispatch(keyDown(e))
+    handleKeyDown: e => dispatch(keyDown(e)),
+    handleKeyActivate: e => dispatch(keyActivate(e)),
+    handleKeyDeactivate: e => dispatch(keyDeactivate(e))
   });
 }
 

@@ -7,18 +7,6 @@ export const keyDown = (data) => {
   };
 };
 
-export const keyPressed = () => {
-  return {
-    type: types.MUSIC_APP_KEYPRESSED
-  };
-};
-
-export const keyDepressed = () => {
-  return {
-    type: types.MUSIC_APP_DEKEYPRESSED
-  };
-};
-
 export const keyUp = (data) => {
   return {
     type: types.MUSIC_APP_KEYUP,
@@ -26,7 +14,7 @@ export const keyUp = (data) => {
   };
 };
 
-export const keyActivate = () => {
+export const keyActivate = (data) => {
   return {
     type: types.MUSIC_APP_KEY_ACTIVATE,
     data: data
