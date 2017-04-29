@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AudioContext from '../../utils/utils.audioContext';
 import Qwerty from '../Qwerty/Qwerty';
 import SoundBank from '../SoundBank/SoundBank';
+import Track from '../Track/Track';
 
 const ctx = new AudioContext();
 const master = ctx.createGain();
@@ -29,30 +30,41 @@ class MusicApplication extends Component {
     document.removeEventListener('keydown', handleKeyDown);
   }
 
-  keyActive = (keyCode) => {
+  isKeyActive = (keyCode) => {
     const { keys } = this.props;
     return keys.filter(obj => obj.active && obj.keyCode === keyCode).length
-  }
+  };
 
   handleKeyUp = (e) => {
-    const { keyActive } = this;
-    const { showSoundBank } = this.state;
+    const {
+      isKeyActive
+    } = this;
+    const { 
+      soundBank: {
+        visible: showSoundBank
+      }
+    } = this.props;
     if (!showSoundBank) {
-      if (keyActive(e.keyCode)) {
+      if (isKeyActive(e.keyCode)) {
         console.log('punch');
       }
     }
   };
 
   handleKeyDown = (e) => {
-    const { handleKeyActivate } = this.props;
-    const { showSoundBank } = this.state;
-    const { keyActive } = this;
+    const {
+      handleKeyActivate,
+      handleSoundbankShow,
+      soundBank: {
+        visible: showSoundBank
+      }
+    } = this.props;
+    const { isKeyActive } = this;
     if (!showSoundBank) {
-      if (!keyActive(e.keyCode)) {
+      if (!isKeyActive(e.keyCode)) {
+        handleSoundbankShow();
         handleKeyActivate(e);
         this.setState({
-          showSoundBank: true,
           currentKeyCode: e.keyCode
         })
       }
@@ -60,15 +72,23 @@ class MusicApplication extends Component {
   };
 
   handleSoundBankCancel = () => {
-    const { currentKeyCode } = this.state;
-    const { handleKeyDeactivate } = this.props;
+    const {
+      currentKeyCode
+    } = this.state;
+    const {
+      handleKeyDeactivate,
+      handleSoundbankShow
+    } = this.props;
     handleKeyDeactivate({ keyCode: currentKeyCode });
-    this.setState({ showSoundBank: false });
+    handleSoundbankShow();
   }
 
   handleSoundBankClose = () => {
-    this.setState({ 
-      showSoundBank: false,
+    const { 
+      handleSoundbankShow
+    } = this.props;
+    handleSoundbankShow();
+    this.setState({
       currentKeyCode: undefined
     });
   }
@@ -77,28 +97,38 @@ class MusicApplication extends Component {
 
     const {
       handleSoundBankCancel,
-      handleSoundBankClose
+      handleSoundBankClose,
+      handleKeyDown
     } = this;
 
     const {
-      showSoundBank
-    } = this.state;
-
-    const {
       ui,
-      keys
+      keys,
+      handleKeyDeactivate,
+      soundBank: {
+        visible: showSoundBank
+      }
     } = this.props;
+
+    const activeKeys = keys.length ? keys.filter(key => key.active) : [];
 
     return (
       <div>
         <div>{ui}</div>
         <Qwerty 
-          keys={keys} 
+          keys={keys}
+          handleClick={handleKeyDown}
         />
         {showSoundBank &&
           <SoundBank 
             handleCancel={handleSoundBankCancel}
             handleClose={handleSoundBankClose}
+          />
+        }
+        {!!activeKeys.length &&
+          <Track 
+            keys={activeKeys} 
+            handleKeyDeactivate={handleKeyDeactivate}
           />
         }
       </div>

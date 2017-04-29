@@ -27,3 +27,9 @@ export const keyDeactivate = (data) => {
     data: data
   }
 };
+
+export const soundbankShow = () => {
+  return {
+    type: types.SOUNDBANK_SHOW
+  }
+};
