@@ -37,17 +37,17 @@ module.exports = {
           }],
           use: [
             {
-              loader: "css-loader",
+              loader: 'css-loader',
               options: {
                 localIdentName: '[folder]__[local]__[hash:base64]',
                 modules: true
               }
             },
             {
-              loader: "sass-loader"
+              loader: 'sass-loader'
             },
             {
-              loader: "postcss-loader"
+              loader: 'postcss-loader'
             }
           ]
         })

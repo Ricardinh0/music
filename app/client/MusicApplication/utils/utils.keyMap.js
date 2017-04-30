@@ -2,7 +2,7 @@ const keyMap = [
   {
     active: false,
     keyCode: 8,
-    key: 'backspace'
+    key: 'delete'
   },
   {
     active: false,
@@ -21,23 +21,8 @@ const keyMap = [
   },
   {
     active: false,
-    keyCode: 17,
-    key: 'ctrl'
-  },
-  {
-    active: false,
-    keyCode: 18,
-    key: 'alt'
-  },
-  {
-    active: false,
-    keyCode: 19,
-    key: 'pause_break'
-  },
-  {
-    active: false,
-    keyCode: 46,
-    key: 'delete'
+    keyCode: 32,
+    key: '\u00A0'
   },
   {
     active: false,
@@ -221,98 +206,58 @@ const keyMap = [
   },
   {
     active: false,
-    keyCode: 91,
-    key: 'left_window_key'
-  },
-  {
-    active: false,
-    keyCode: 92,
-    key: 'right_window_key'
-  },
-  {
-    active: false,
-    keyCode: 93,
-    key: 'select_key'
-  },
-  {
-    active: false,
-    keyCode: 106,
-    key: 'multiply'
-  },
-  {
-    active: false,
-    keyCode: 107,
-    key: 'add'
-  },
-  {
-    active: false,
-    keyCode: 109,
-    key: 'subtract'
-  },
-  {
-    active: false,
-    keyCode: 110,
-    key: 'decimal_point'
-  },
-  {
-    active: false,
-    keyCode: 111,
-    key: 'divide'
-  },
-  {
-    active: false,
     keyCode: 186,
-    key: 'semi_colon'
+    key: ';'
   },
   {
     active: false,
     keyCode: 187,
-    key: 'equal_sign'
+    key: '='
   },
   {
     active: false,
     keyCode: 188,
-    key: 'comma'
+    key: ','
   },
   {
     active: false,
     keyCode: 189,
-    key: 'dash'
+    key: '-'
   },
   {
     active: false,
     keyCode: 190,
-    key: 'period'
+    key: '.'
   },
   {
     active: false,
     keyCode: 191,
-    key: 'forward_slash'
+    key: '/'
   },
   {
     active: false,
     keyCode: 192,
-    key: 'grave_accent'
+    key: '`'
   },
   {
     active: false,
     keyCode: 219,
-    key: 'open_bracket'
+    key: '['
   },
   {
     active: false,
     keyCode: 220,
-    key: 'backslash'
+    key: '\\'
   },
   {
     active: false,
     keyCode: 221,
-    key: 'closebracket'
+    key: ']'
   },
   {
     active: false,
     keyCode: 222,
-    key: 'single_quote'
+    key: '\''
   }
 ]
 export default keyMap;

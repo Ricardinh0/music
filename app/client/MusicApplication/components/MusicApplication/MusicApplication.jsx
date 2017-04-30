@@ -35,23 +35,28 @@ class MusicApplication extends Component {
     return keys.filter(obj => obj.active && obj.keyCode === keyCode).length
   };
 
+  isKeyWhiteListed = (keyCode) => {
+    const { keys } = this.props;
+    return keys.filter(obj => obj.keyCode === keyCode).length
+  };
+
   handleKeyUp = (e) => {
-    const {
-      isKeyActive
-    } = this;
+    const { keyCode } = e;
+    const { isKeyActive, isKeyWhiteListed } = this;
     const { 
       soundBank: {
         visible: showSoundBank
       }
     } = this.props;
-    if (!showSoundBank) {
-      if (isKeyActive(e.keyCode)) {
+    if (isKeyWhiteListed(keyCode) && !showSoundBank) {
+      if (isKeyActive(keyCode)) {
         console.log('punch');
       }
     }
   };
 
   handleKeyDown = (e) => {
+    const { keyCode } = e;
     const {
       handleKeyActivate,
       handleSoundbankShow,
@@ -59,9 +64,9 @@ class MusicApplication extends Component {
         visible: showSoundBank
       }
     } = this.props;
-    const { isKeyActive } = this;
-    if (!showSoundBank) {
-      if (!isKeyActive(e.keyCode)) {
+    const { isKeyActive, isKeyWhiteListed } = this;
+    if (isKeyWhiteListed(keyCode) && !showSoundBank) {
+      if (!isKeyActive(keyCode)) {
         handleSoundbankShow();
         handleKeyActivate(e);
         this.setState({
@@ -110,7 +115,7 @@ class MusicApplication extends Component {
       }
     } = this.props;
 
-    const activeKeys = keys.length ? keys.filter(key => key.active) : [];
+    const activeKeys = keys.filter(key => key !== undefined && key.active);
 
     return (
       <div>
