@@ -1,10 +1,4 @@
-.row {
-  display: block;
-}
-.key_sm,
-.key_lg,
-.key_md,
-.key_xlg {
+.key {
   font-family: 'Open Sans', Helvetica, arial, sans-serif;
   position:relative;
   background:#333;
@@ -38,21 +32,4 @@
     right:5px;
     font-size:8px;
   }
-}
-
-.key_lg,
-.key_sm,
-.key_md,
-.key_xlg{
-  padding:0 5px 20px;
-  text-transform:lowercase;
-}
-
-.key_sm{width:75px}
-.key_md{width:80px}
-.key_lg{width:84px}
-.key_xlg{width:102px}
-
-.text_right {
-  text-align: right;
 }

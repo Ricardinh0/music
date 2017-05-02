@@ -3,7 +3,13 @@ import React, { Component } from 'react';
 class Track extends Component {
 
   shouldComponentUpdate(nextProps, nextState) {
-    return true;
+    const { keys } = this.props;
+    const { keys:next } = nextProps;
+    if (keys.length===next.length) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   handleDelete = (e) => {

@@ -1,6 +1,11 @@
 const keyMap = [
   {
     active: false,
+    keyCode: 192,
+    key: '`'
+  },
+  {
+    active: false,
     keyCode: 49,
     key: '1'
   },
@@ -51,28 +56,93 @@ const keyMap = [
   },
   {
     active: false,
-    keyCode: 65,
-    key: 'a'
+    keyCode: 189,
+    key: '-'
   },
   {
     active: false,
-    keyCode: 66,
-    key: 'b'
+    keyCode: 187,
+    key: '='
   },
   {
     active: false,
-    keyCode: 67,
-    key: 'c'
+    keyCode: 81,
+    key: 'q'
   },
   {
     active: false,
-    keyCode: 68,
-    key: 'd'
+    keyCode: 87,
+    key: 'w'
   },
   {
     active: false,
     keyCode: 69,
     key: 'e'
+  },
+  {
+    active: false,
+    keyCode: 82,
+    key: 'r'
+  },
+  {
+    active: false,
+    keyCode: 84,
+    key: 't'
+  },
+  {
+    active: false,
+    keyCode: 89,
+    key: 'y'
+  },
+  {
+    active: false,
+    keyCode: 85,
+    key: 'u'
+  },
+  {
+    active: false,
+    keyCode: 73,
+    key: 'i'
+  },
+  {
+    active: false,
+    keyCode: 79,
+    key: 'o'
+  },
+  {
+    active: false,
+    keyCode: 80,
+    key: 'p'
+  },
+  {
+    active: false,
+    keyCode: 219,
+    key: '['
+  },
+  {
+    active: false,
+    keyCode: 221,
+    key: ']'
+  },
+  {
+    active: false,
+    keyCode: 220,
+    key: '\\'
+  },
+  {
+    active: false,
+    keyCode: 65,
+    key: 'a'
+  },
+  {
+    active: false,
+    keyCode: 83,
+    key: 's'
+  },
+  {
+    active: false,
+    keyCode: 68,
+    key: 'd'
   },
   {
     active: false,
@@ -91,11 +161,6 @@ const keyMap = [
   },
   {
     active: false,
-    keyCode: 73,
-    key: 'i'
-  },
-  {
-    active: false,
     keyCode: 74,
     key: 'j'
   },
@@ -111,68 +176,13 @@ const keyMap = [
   },
   {
     active: false,
-    keyCode: 77,
-    key: 'm'
+    keyCode: 186,
+    key: ';'
   },
   {
     active: false,
-    keyCode: 78,
-    key: 'n'
-  },
-  {
-    active: false,
-    keyCode: 79,
-    key: 'o'
-  },
-  {
-    active: false,
-    keyCode: 80,
-    key: 'p'
-  },
-  {
-    active: false,
-    keyCode: 81,
-    key: 'q'
-  },
-  {
-    active: false,
-    keyCode: 82,
-    key: 'r'
-  },
-  {
-    active: false,
-    keyCode: 83,
-    key: 's'
-  },
-  {
-    active: false,
-    keyCode: 84,
-    key: 't'
-  },
-  {
-    active: false,
-    keyCode: 85,
-    key: 'u'
-  },
-  {
-    active: false,
-    keyCode: 86,
-    key: 'v'
-  },
-  {
-    active: false,
-    keyCode: 87,
-    key: 'w'
-  },
-  {
-    active: false,
-    keyCode: 88,
-    key: 'x'
-  },
-  {
-    active: false,
-    keyCode: 89,
-    key: 'y'
+    keyCode: 222,
+    key: '\''
   },
   {
     active: false,
@@ -181,23 +191,38 @@ const keyMap = [
   },
   {
     active: false,
-    keyCode: 186,
-    key: ';'
+    keyCode: 88,
+    key: 'x'
   },
   {
     active: false,
-    keyCode: 187,
-    key: '='
+    keyCode: 67,
+    key: 'c'
+  },
+  {
+    active: false,
+    keyCode: 86,
+    key: 'v'
+  },
+  {
+    active: false,
+    keyCode: 66,
+    key: 'b'
+  },
+  {
+    active: false,
+    keyCode: 78,
+    key: 'n'
+  },
+  {
+    active: false,
+    keyCode: 77,
+    key: 'm'
   },
   {
     active: false,
     keyCode: 188,
     key: ','
-  },
-  {
-    active: false,
-    keyCode: 189,
-    key: '-'
   },
   {
     active: false,
@@ -208,31 +233,6 @@ const keyMap = [
     active: false,
     keyCode: 191,
     key: '/'
-  },
-  {
-    active: false,
-    keyCode: 192,
-    key: '`'
-  },
-  {
-    active: false,
-    keyCode: 219,
-    key: '['
-  },
-  {
-    active: false,
-    keyCode: 220,
-    key: '\\'
-  },
-  {
-    active: false,
-    keyCode: 221,
-    key: ']'
-  },
-  {
-    active: false,
-    keyCode: 222,
-    key: '\''
   }
-]
+];
 export default keyMap;

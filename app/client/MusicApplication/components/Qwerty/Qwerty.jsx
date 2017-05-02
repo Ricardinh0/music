@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
+import QwertyKey from '../QwertyKey/QwertyKey';
 import styles from './styles.scss';
 
 const Qwerty = ({
   keys,
   handleClick
 }) => {
-
-
-  const getKeyButtons = (arr, rowList) => arr.filter((obj) => {
+  const buttons = (arr, rowList) => arr.filter((obj) => {
     if (obj.hasOwnProperty('keyCode')) {
       if (rowList.filter(n => n === obj.keyCode).length) {
         return true;
@@ -15,28 +14,52 @@ const Qwerty = ({
     }
   });
 
-  const row = getKeyButtons(keys, [48, 49, 50, 51, 52, 53, 54, 55, 56, 57]);
+  const row = arr => arr.map((obj, index) =>
+    <QwertyKey
+      key={index}
+      data={obj}
+      handleClick={handleClick}
+    />
+  );
+
+  const rowA = buttons(keys, [192, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 189, 187]);
+  const rowB = buttons(keys, [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221, 220]);
+  const rowC = buttons(keys, [65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222]);
+  const rowD = buttons(keys, [90, 88, 67, 86, 66, 78, 77, 188, 190, 191]);
 
   return (
     <div>
       <div className={styles.row}>
-        {row.map((obj, i) => 
-          <button 
-            key={i}
-            className={styles.key}
-            style={{ background: obj.active ? 'red' : '' }}
-            onClick={() => handleClick({ keyCode: obj.keyCode })}
-          >
-            {obj.key}
-          </button>
-        )}
+        {row(rowA)}
+        <button className={`${styles.key_sm} ${styles.text_right}`}>delete</button>
+      </div>
+      <div className={styles.row}>
+        <button className={styles.key_sm}>tab</button>
+        {row(rowB)}
+      </div>
+      <div className={styles.row}>
+        <button className={styles.key_sm}>caps</button>
+        {row(rowC)}
+        <button className={`${styles.key_lg} ${styles.text_right}`}>return</button>
+      </div>
+      <div className={styles.row}>
+        <button className={styles.key_xlg}>shift</button>
+        {row(rowD)}
+        <button className={`${styles.key_xlg} ${styles.text_right}`}>shift</button>
+      </div>
+      <div className={styles.row}>
+        <button className={styles.key}>space bar</button>
       </div>
     </div>
   );
 };
 
 Qwerty.propTypes = {
-  keys: PropTypes.array.isRequired,
+  keys: PropTypes.arrayOf(PropTypes.shape({
+    active: PropTypes.bool,
+    key: PropTypes.string,
+    keyCode: PropTypes.number
+  })).isRequired,
   handleClick: PropTypes.func.isRequired,
 };
 

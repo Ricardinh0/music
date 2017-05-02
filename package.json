@@ -10,7 +10,7 @@
     "run:build": "NODE_ENV=prod $(yarn bin)/webpack --config webpack.build.config.js",
     "test": "NODE_ENV=testing karma start --single-run",
     "test:watch": "NODE_ENV=testing karma start",
-    "lint": "$(yarn bin)/eslint .js,.jsx app/client/** .eslintrc.yml"
+    "lint": "$(yarn bin)/eslint .js,.jsx app/client/MusicApplication/**/* .eslintrc.yml"
   },
   "dependencies": {
     "autoprefixer": "6.7.2",

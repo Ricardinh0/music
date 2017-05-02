@@ -1,0 +1,65 @@
+.Qwerty__row__9b1WClXpozUAAeD8hRSQn,
+.Qwerty__key__3212f5Y951fHqS6RkAcIGZ,
+.Qwerty__key-lg__QGz_XRkupja1X34J5029t,
+.Qwerty__key-md__3zigNrZVj0DcZa6Q_5DzJT,
+.Qwerty__key-xlg__34XoE4z3cnr__so2RdPjdd,
+.Qwerty__key-md__3zigNrZVj0DcZa6Q_5DzJT,
+.Qwerty__key-lg__QGz_XRkupja1X34J5029t,
+.Qwerty__key-xlg__34XoE4z3cnr__so2RdPjdd {
+  all: initial;
+  box-sizing: border-box; }
+
+.Qwerty__key__3212f5Y951fHqS6RkAcIGZ {
+  position: relative;
+  background: #333;
+  border: 3px solid transparent;
+  color: #FFF;
+  border-radius: 4px;
+  margin: 2px;
+  padding: 0 20px 20px 0;
+  width: 40px;
+  height: 40px;
+  font-size: 11px;
+  text-transform: uppercase; }
+  .Qwerty__key__3212f5Y951fHqS6RkAcIGZ:hover {
+    background: #000; }
+  .Qwerty__key__3212f5Y951fHqS6RkAcIGZ:active, .Qwerty__key__3212f5Y951fHqS6RkAcIGZ:focus {
+    outline: 0; }
+  .Qwerty__key__3212f5Y951fHqS6RkAcIGZ:active {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.4); }
+  .Qwerty__key__3212f5Y951fHqS6RkAcIGZ:after {
+    font-family: 'Glyphicons Halflings';
+    position: absolute;
+    display: block;
+    content: '';
+    width: 10px;
+    height: 10px;
+    bottom: 5px;
+    right: 5px;
+    font-size: 8px; }
+
+.Qwerty__key-lg__QGz_XRkupja1X34J5029t,
+.Qwerty__key-md__3zigNrZVj0DcZa6Q_5DzJT,
+.Qwerty__key-xlg__34XoE4z3cnr__so2RdPjdd {
+  padding: 0 5px 20px;
+  text-transform: lowercase; }
+
+.Qwerty__key-md__3zigNrZVj0DcZa6Q_5DzJT {
+  width: 75px; }
+
+.Qwerty__key-lg__QGz_XRkupja1X34J5029t {
+  width: 80px; }
+
+.Qwerty__key-xlg__34XoE4z3cnr__so2RdPjdd {
+  width: 102px; }
+.SoundBank__test__1ZaZsiC31zRWDIZVCFKnX3 {
+  all: initial;
+  box-sizing: border-box; }
+
+.SoundBank__test__1ZaZsiC31zRWDIZVCFKnX3 {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  top: 0;
+  left: 0; }
