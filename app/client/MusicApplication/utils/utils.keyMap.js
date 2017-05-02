@@ -1,36 +1,6 @@
 const keyMap = [
   {
     active: false,
-    keyCode: 8,
-    key: 'delete'
-  },
-  {
-    active: false,
-    keyCode: 9,
-    key: 'tab'
-  },
-  {
-    active: false,
-    keyCode: 13,
-    key: 'enter'
-  },
-  {
-    active: false,
-    keyCode: 16,
-    key: 'shift'
-  },
-  {
-    active: false,
-    keyCode: 32,
-    key: '\u00A0'
-  },
-  {
-    active: false,
-    keyCode: 48,
-    key: '0'
-  },
-  {
-    active: false,
     keyCode: 49,
     key: '1'
   },
@@ -73,6 +43,11 @@ const keyMap = [
     active: false,
     keyCode: 57,
     key: '9'
+  },
+  {
+    active: false,
+    keyCode: 48,
+    key: '0'
   },
   {
     active: false,
