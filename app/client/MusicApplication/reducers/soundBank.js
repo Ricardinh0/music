@@ -3,13 +3,21 @@ import * as types from '../constants/actionTypes';
 export const getSoundBank = state => ({ soundBank: state.soundBank });
 
 const soundBank = (state = {
-  visible: false
+  visible: false,
+  keyCode: undefined 
 }, action) => {
   switch (action.type) {
     case types.SOUNDBANK_SHOW:
       return {
         ...state,
-        visible: !state.visible
+        visible: true,
+        keyCode: action.data.keyCode
+      };
+    case types.SOUNDBANK_CANCEL:
+      return {
+        ...state,
+        visible: false,
+        keyCode: undefined
       };
     default:
       return state;

@@ -3,8 +3,6 @@ const webpack = require('webpack');
 const config = require('./webpack.config');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-config.devtool = 'source-map';
-
 config.plugins = [
   new ExtractTextPlugin('[name].bundle.css')
 ];
@@ -15,6 +13,8 @@ config.output = {
   sourceMapFilename: '[name].bundle.js.map',
   publicPath: '/'
 };
+
+config.devtool = 'source-map';
 
 config.devServer = {
   contentBase: path.resolve(__dirname, './dist')

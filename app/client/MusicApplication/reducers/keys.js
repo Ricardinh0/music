@@ -19,10 +19,7 @@ const toggleActivity = (state, action) => {
   ];
 };
 
-const keys = (state = {
-  keyCode: 0,
-  active: false,
-}, action) => {
+const keys = (state = {}, action) => {
   switch (action.type) {
     case types.MUSIC_APP_KEYDOWN: {
       return state;

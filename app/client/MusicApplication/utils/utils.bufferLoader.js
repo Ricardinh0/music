@@ -1,48 +1,28 @@
-const decodeBuffer = ({
-  ctx, 
-  arrayBuffer,
+const bufferLoader = ({
+  ctx,
+  src,
   onComplete,
   onError
 }) => {
-  ctx.decodeAudioData(
-    arrayBuffer,
-    (buffer) => {
-      if (!buffer) return;
-      onComplete(buffer);
-    },
-    (error) => {
-      onError(error);
-    }
-  );
-};
-
-const loadBuffer = ({
-  ctx,
-  src
-}) => {
-
-}
-
-BufferLoader.prototype.loadBuffer = function(file, index) {
-  // Load buffer asynchronously
-  var self = this;
-  var request = new XMLHttpRequest();
-  var url = file.src;
-  request.open("GET", url, true);
-  request.responseType = "arraybuffer";
-
-  if(typeof self.onSubmit === 'function') self.onSubmit();
-
-  request.onload = function() {
-    self.decodeBuffer(request.response, index);
+  const request = new XMLHttpRequest();
+  request.open('GET', src, true);
+  request.responseType = 'arraybuffer';
+  request.onload = () => {
+    ctx.decodeAudioData(
+      ...{ ...request }.response,
+      (buffer) => {
+        if (!buffer) return;
+        onComplete(buffer);
+      },
+      (error) => {
+        onError(error);
+      }
+    );
   };
-
-  request.onerror = function() {
+  request.onerror = () => {
     alert('BufferLoader: XHR error');
   };
-
   request.send();
 };
 
-export default BufferLoader;
-
+export default bufferLoader;

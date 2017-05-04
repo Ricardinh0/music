@@ -6,14 +6,14 @@ const vendors = [
   'es5-shim/es5-shim',
   'es5-shim/es5-sham'
 ];
-const bundle = function(app) {
+const bundle = (app) => {
   const files = vendors.concat([app]);
   return files;
 };
 module.exports = {
   context: path.resolve(__dirname, './app/client/'),
   entry: {
-    'index': bundle('./')
+    index: bundle('./')
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css', '.scss'],

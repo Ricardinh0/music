@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-import AudioContext from '../../utils/utils.audioContext';
 import Qwerty from '../Qwerty/Qwerty';
-import SoundBank from '../SoundBank/SoundBank';
+import SoundBankContainer from '../../containers/SoundBankContainer';
 import Track from '../Track/Track';
-
-const ctx = new AudioContext();
-const master = ctx.createGain();
-master.connect(ctx.destination);
 
 class MusicApplication extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      showSoundBank: false,
       currentKeyCode: undefined
     }
   }
@@ -58,56 +52,27 @@ class MusicApplication extends Component {
   handleKeyDown = (e) => {
     const { keyCode } = e;
     const {
-      handleKeyActivate,
       handleSoundbankShow,
       soundBank: {
-        visible: showSoundBank
+        visible: soundBankVisible
       }
     } = this.props;
     const { isKeyActive, isKeyWhiteListed } = this;
-    if (isKeyWhiteListed(keyCode) && !showSoundBank) {
+    if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
       if (!isKeyActive(keyCode)) {
-        handleSoundbankShow();
-        handleKeyActivate(e);
-        this.setState({
-          currentKeyCode: e.keyCode
-        })
+        handleSoundbankShow(e);
       }
     }
   };
 
-  handleSoundBankCancel = () => {
-    const {
-      currentKeyCode
-    } = this.state;
-    const {
-      handleKeyDeactivate,
-      handleSoundbankShow
-    } = this.props;
-    handleKeyDeactivate({ keyCode: currentKeyCode });
-    handleSoundbankShow();
-  }
-
-  handleSoundBankClose = () => {
-    const { 
-      handleSoundbankShow
-    } = this.props;
-    handleSoundbankShow();
-    this.setState({
-      currentKeyCode: undefined
-    });
-  }
-
   render() {
 
     const {
-      handleSoundBankCancel,
-      handleSoundBankClose,
       handleKeyDown
     } = this;
 
     const {
-      ui,
+      audioMaster,
       keys,
       handleKeyDeactivate,
       soundBank: {
@@ -119,16 +84,12 @@ class MusicApplication extends Component {
 
     return (
       <div>
-        <div>{ui}</div>
         <Qwerty 
           keys={keys}
           handleClick={handleKeyDown}
         />
         {showSoundBank &&
-          <SoundBank 
-            handleCancel={handleSoundBankCancel}
-            handleClose={handleSoundBankClose}
-          />
+          <SoundBankContainer />
         }
         {!!activeKeys.length &&
           <Track 

@@ -3,8 +3,7 @@ module.exports = {
     require('autoprefixer')({ browsers: 'last 2 versions' }),
     require('postcss-autoreset')({
       reset: {
-        all: 'initial',
-        'box-sizing': 'border-box',
+        'box-sizing': 'border-box'
       },
     }),
   ],

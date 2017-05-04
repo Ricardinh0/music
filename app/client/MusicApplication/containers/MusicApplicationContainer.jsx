@@ -6,6 +6,7 @@ import {
   keyDeactivate,
   soundbankShow
 } from '../actions/actionCreators';
+import { getAudioMaster } from '../reducers/audioMaster';
 import { getUI } from '../reducers/ui';
 import { getKeys } from '../reducers/keys';
 import { getSoundBank } from '../reducers/soundBank';
@@ -13,7 +14,7 @@ import MusicApplication from '../components/MusicApplication/MusicApplication';
 
 const mapStateToProps = (state) => {
   return {
-    ...getUI(state),
+    ...getAudioMaster(state),
     ...getKeys(state),
     ...getSoundBank(state)
   };
@@ -25,7 +26,7 @@ const mapDispatchToProps = (dispatch) => {
     handleKeyDown: e => dispatch(keyDown(e)),
     handleKeyActivate: e => dispatch(keyActivate(e)),
     handleKeyDeactivate: e => dispatch(keyDeactivate(e)),
-    handleSoundbankShow: () => dispatch(soundbankShow())
+    handleSoundbankShow: data => dispatch(soundbankShow(data))
   });
 };
 

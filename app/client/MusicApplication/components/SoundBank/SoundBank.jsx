@@ -1,30 +1,40 @@
-import React from 'react';
-import BufferLoader from '../../utils/utils.bufferLoader';
+import React, { Component } from 'react';
+import bufferLoader from '../../utils/utils.bufferLoader';
 import styles from './styles.scss';
 
-const SoundBank = ({
-  handleCancel,
-  handleClose
-}) => {
+class SoundBank extends Component {
 
-  const handleFileChange = e => {
+  handleFileChange = e => {
+    const { 
+      handleSoundbankSave,
+      soundBank
+    } = this.props;
     const src = URL.createObjectURL(e.target.files[0]);
-    debugger;
-    const b = new BufferLoader({
-
-    }).loadBuffer({
-      file: src
-    });
+    // Dispatch load with src and ctx so that a return arrayBuffer is added to correct key
+    handleSoundbankSave({
+      ...soundBank,
+      src
+    })
   };
 
-  return (
-    <div className={styles.test}>
-      SoundBank
-      <input type="file" onChange={handleFileChange} />
-      <button onClick={handleCancel}>Cancel</button>
-      <button onClick={handleClose}>Close</button>
-    </div>
-  )
+  handleCancel = e => {
+    const { handleSoundbankCancel, soundBank } = this.props;
+    handleSoundbankCancel(soundBank);
+  };
+
+  render() {
+    const {
+      handleFileChange,
+      handleCancel
+    } = this;
+
+    return (
+      <div className={styles.test}>
+        <input type="file" onChange={handleFileChange} />
+        <button onClick={handleCancel}>Cancel</button>
+      </div>
+    );
+  }
 };
 
 export default SoundBank;
