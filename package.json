@@ -25,6 +25,7 @@
     "compression-webpack-plugin": "^0.4.0",
     "css-loader": "^0.28.0",
     "es5-shim": "^4.5.9",
+    "es6-promise": "^4.1.0",
     "eslint-loader": "^1.7.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "karma": "^1.5.0",
@@ -52,6 +53,7 @@
     "style-loader": "^0.16.1",
     "webpack": "^2.3.2",
     "webpack-dev-server": "2",
+    "whatwg-fetch": "^2.0.3",
     "why-did-you-update": "^0.0.8"
   },
   "devDependencies": {

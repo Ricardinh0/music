@@ -28,24 +28,18 @@ const Qwerty = ({
   const rowD = buttons(keys, [90, 88, 67, 86, 66, 78, 77, 188, 190, 191]);
 
   return (
-    <div>
+    <div className={styles.qwerty}>
       <div className={styles.row}>
         {row(rowA)}
-        <button className={`${styles.key_sm} ${styles.text_right}`}>delete</button>
       </div>
       <div className={styles.row}>
-        <button className={styles.key_sm}>tab</button>
         {row(rowB)}
       </div>
       <div className={styles.row}>
-        <button className={styles.key_sm}>caps</button>
         {row(rowC)}
-        <button className={`${styles.key_lg} ${styles.text_right}`}>return</button>
       </div>
       <div className={styles.row}>
-        <button className={styles.key_xlg}>shift</button>
         {row(rowD)}
-        <button className={`${styles.key_xlg} ${styles.text_right}`}>shift</button>
       </div>
       <div className={styles.row}>
         <button className={styles.key}>space bar</button>

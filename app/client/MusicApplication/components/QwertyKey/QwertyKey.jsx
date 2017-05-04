@@ -33,13 +33,17 @@ class QwertKey extends Component {
     } = this.props;
 
     return (
-      <button
-        className={styles.key}
-        style={{ background: data.active ? 'red' : '' }}
-        onClick={handleKeyClick}
-      >
-        {data.key}
-      </button>
+      <div className={styles.qwertyKey}>
+        <div className={styles.key}>  
+          <button
+            className={styles.button}
+            style={{ background: data.active ? 'red' : '' }}
+            onClick={handleKeyClick}
+          >
+            {data.key}
+          </button>
+        </div>
+      </div>
     );
   }
 }
