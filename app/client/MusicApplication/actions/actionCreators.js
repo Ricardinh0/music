@@ -28,6 +28,18 @@ export const keyDeactivate = (data) => {
   };
 };
 
+export const soundbankSaveBegin = () => {
+  return {
+    type: types.SOUNDBANK_SAVE_BEGIN
+  };
+};
+
+export const soundbankSaveComplete = () => {
+  return {
+    type: types.SOUNDBANK_SAVE_COMPLETE
+  };
+};
+
 export const soundbankSave = (data) => {
   return {
     type: types.SOUNDBANK_SAVE,

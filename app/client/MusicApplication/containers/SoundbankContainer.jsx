@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import {
   soundbankCancel,
-  soundbankSave,
-  soundbankShow
+  soundbankSave
 } from '../actions/actionCreators';
 import { getAudioMaster } from '../reducers/audioMaster';
 import { getSoundBank } from '../reducers/soundBank';

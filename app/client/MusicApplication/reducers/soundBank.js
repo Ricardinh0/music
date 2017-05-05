@@ -4,7 +4,8 @@ export const getSoundBank = state => ({ soundBank: state.soundBank });
 
 const soundBank = (state = {
   visible: false,
-  keyCode: undefined 
+  keyCode: undefined,
+  isSaving: false
 }, action) => {
   switch (action.type) {
     case types.SOUNDBANK_SHOW:

@@ -5,7 +5,7 @@ import styles from './styles.scss';
 class SoundBank extends Component {
 
   handleFileChange = e => {
-    const { 
+    const {
       handleSoundbankSave,
       soundBank
     } = this.props;

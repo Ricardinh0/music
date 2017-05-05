@@ -5,13 +5,6 @@ import Track from '../Track/Track';
 
 class MusicApplication extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentKeyCode: undefined
-    }
-  }
-
   componentWillMount() {
     const { handleKeyUp, handleKeyDown } = this;
     document.addEventListener('keyup', handleKeyUp);
@@ -39,14 +32,14 @@ class MusicApplication extends Component {
     const { isKeyActive, isKeyWhiteListed } = this;
     const { 
       soundBank: {
-        visible: showSoundBank
+        visible: soundBankVisible
       }
     } = this.props;
-    if (isKeyWhiteListed(keyCode) && !showSoundBank) {
-      if (isKeyActive(keyCode)) {
+    // if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
+      if (isKeyActive(keyCode) && !soundBankVisible) {
         console.log('punch');
       }
-    }
+    // }
   };
 
   handleKeyDown = (e) => {
@@ -58,11 +51,11 @@ class MusicApplication extends Component {
       }
     } = this.props;
     const { isKeyActive, isKeyWhiteListed } = this;
-    if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
-      if (!isKeyActive(keyCode)) {
+    // if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
+      if (!isKeyActive(keyCode) && !soundBankVisible) {
         handleSoundbankShow(e);
       }
-    }
+    // }
   };
 
   render() {
@@ -76,7 +69,7 @@ class MusicApplication extends Component {
       keys,
       handleKeyDeactivate,
       soundBank: {
-        visible: showSoundBank
+        visible: soundBankVisible
       }
     } = this.props;
 
@@ -88,7 +81,7 @@ class MusicApplication extends Component {
           keys={keys}
           handleClick={handleKeyDown}
         />
-        {showSoundBank &&
+        {soundBankVisible &&
           <SoundBankContainer />
         }
         {!!activeKeys.length &&

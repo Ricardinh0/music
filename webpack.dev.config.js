@@ -14,7 +14,7 @@ config.output = {
   publicPath: '/'
 };
 
-config.devtool = 'source-map';
+config.devtool = 'eval-source-map';
 
 config.devServer = {
   contentBase: path.resolve(__dirname, './dist')
