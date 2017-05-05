@@ -20,6 +20,11 @@ const soundBank = (state = {
         visible: false,
         keyCode: undefined
       };
+    case types.SOUNDBANK_CLOSE:
+      return {
+        ...state,
+        visible: false
+      };
     default:
       return state;
   }

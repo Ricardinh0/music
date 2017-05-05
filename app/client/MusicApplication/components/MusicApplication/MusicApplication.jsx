@@ -35,11 +35,11 @@ class MusicApplication extends Component {
         visible: soundBankVisible
       }
     } = this.props;
-    // if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
-      if (isKeyActive(keyCode) && !soundBankVisible) {
+    if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
+      if (isKeyActive(keyCode)) {
         console.log('punch');
       }
-    // }
+    }
   };
 
   handleKeyDown = (e) => {
@@ -51,11 +51,11 @@ class MusicApplication extends Component {
       }
     } = this.props;
     const { isKeyActive, isKeyWhiteListed } = this;
-    // if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
-      if (!isKeyActive(keyCode) && !soundBankVisible) {
+    if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
+      if (!isKeyActive(keyCode)) {
         handleSoundbankShow(e);
       }
-    // }
+    }
   };
 
   render() {

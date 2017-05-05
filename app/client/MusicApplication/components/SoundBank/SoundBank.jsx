@@ -6,12 +6,14 @@ class SoundBank extends Component {
 
   handleFileChange = e => {
     const {
-      handleSoundbankSave,
+      audioMaster,
+      handleSoundbankLoadFile,
       soundBank
     } = this.props;
     const src = URL.createObjectURL(e.target.files[0]);
     // Dispatch load with src and ctx so that a return arrayBuffer is added to correct key
-    handleSoundbankSave({
+    handleSoundbankLoadFile({
+      ...audioMaster,
       ...soundBank,
       src
     })

@@ -31,6 +31,22 @@ const keys = (state = {}, action) => {
       return toggleActivity(state, action);
     case types.MUSIC_APP_KEY_DEACTIVATE:
       return toggleActivity(state, action);
+    case types.MUSIC_APP_KEY_ADD_BUFFER: {
+      const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
+      return [
+        ...state.slice(0, index),
+        ...[state.map((obj, i) => {
+          if (i === index) {
+            return {
+              ...obj,
+              buffer: action.data.buffer
+            };
+          }
+          return obj;
+        })[index]],
+        ...state.slice(index + 1)
+      ];
+    }
     default:
       return state;
   }

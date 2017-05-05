@@ -2,16 +2,6 @@ import React, { Component } from 'react';
 
 class Track extends Component {
 
-  shouldComponentUpdate(nextProps, nextState) {
-    const { keys } = this.props;
-    const { keys:next } = nextProps;
-    if (keys.length===next.length) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   handleDelete = (e) => {
     const { target } = e;
     const { handleKeyDeactivate } = this.props;

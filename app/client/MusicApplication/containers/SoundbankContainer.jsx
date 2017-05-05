@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {
   soundbankCancel,
-  soundbankSave
+  soundbankLoadFile
 } from '../actions/actionCreators';
 import { getAudioMaster } from '../reducers/audioMaster';
 import { getSoundBank } from '../reducers/soundBank';
@@ -18,7 +18,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSoundbankCancel: data => dispatch(soundbankCancel(data)),
-    handleSoundbankSave: data => dispatch(soundbankSave(data)),
+    handleSoundbankLoadFile: data => dispatch(soundbankLoadFile(data)),
   };
 };
 

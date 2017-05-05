@@ -1,67 +1,65 @@
 import * as types from '../constants/actionTypes';
+import loadFileAndDecode from '../../shared/services/loadFileAndDecode';
 
-export const keyDown = (data) => {
-  return {
-    type: types.MUSIC_APP_KEYDOWN,
-    data: data
-  };
-};
+export const keyDown = data => ({
+  type: types.MUSIC_APP_KEYDOWN,
+  data
+});
 
-export const keyUp = (data) => {
-  return {
-    type: types.MUSIC_APP_KEYUP,
-    data: data
-  };
-};
+export const keyUp = data => ({
+  type: types.MUSIC_APP_KEYUP,
+  data
+});
 
-export const keyActivate = (data) => {
-  return {
-    type: types.MUSIC_APP_KEY_ACTIVATE,
-    data: data
-  };
-};
+export const keyActivate = data => ({
+  type: types.MUSIC_APP_KEY_ACTIVATE,
+  data
+});
 
-export const keyDeactivate = (data) => {
-  return {
-    type: types.MUSIC_APP_KEY_DEACTIVATE,
-    data: data
-  };
-};
+export const keyDeactivate = data => ({
+  type: types.MUSIC_APP_KEY_DEACTIVATE,
+  data
+});
 
-export const soundbankSaveBegin = () => {
-  return {
-    type: types.SOUNDBANK_SAVE_BEGIN
-  };
-};
+export const soundbankLoadFile = data => (
+  (dispatch) => {
+    loadFileAndDecode({
+      src: data.src
+    }).then((arrayBuffer) => {
+      data.ctx.decodeAudioData(
+        arrayBuffer,
+        (buffer) => {
+          dispatch({
+            type: types.MUSIC_APP_KEY_ADD_BUFFER,
+            data: {
+              buffer,
+              keyCode: data.keyCode
+            }
+          });
+          dispatch({
+            type: types.SOUNDBANK_CLOSE,
+          });
+        }
+      );
+    });
+  }
+);
 
-export const soundbankSaveComplete = () => {
-  return {
-    type: types.SOUNDBANK_SAVE_COMPLETE
-  };
-};
-
-export const soundbankSave = (data) => {
-  return {
-    type: types.SOUNDBANK_SAVE,
-    data: data
-  };
-};
-
-export const soundbankShow = (data) => {
-  return (dispatch) => {
+export const soundbankShow = data => (
+  (dispatch) => {
     dispatch(keyActivate(data));
     dispatch({
       type: types.SOUNDBANK_SHOW,
-      data: data
+      data
     });
-  };
-};
+  }
+);
 
-export const soundbankCancel = (data) => {
-  return (dispatch) => {
+export const soundbankCancel = data => (
+  (dispatch) => {
     dispatch(keyDeactivate(data));
     dispatch({
       type: types.SOUNDBANK_CANCEL
     });
-  };
-};
+  }
+);
