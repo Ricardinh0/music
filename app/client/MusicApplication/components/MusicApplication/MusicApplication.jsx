@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Qwerty from '../Qwerty/Qwerty';
+import MetronomeContainer from '../../containers/MetronomeContainer';
 import SoundBankContainer from '../../containers/SoundBankContainer';
 import TrackContainer from '../../containers/TrackContainer';
 import play from '../../utils/utils.play';
@@ -73,6 +74,7 @@ class MusicApplication extends Component {
 
     return (
       <div>
+        <MetronomeContainer />
         <Qwerty
           keys={keys}
           handleClick={handleKeyDown}
