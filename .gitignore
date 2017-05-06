@@ -2,3 +2,4 @@
 /yarn.lock
 /.yarnclean
 /app/client/_
+/app/assets

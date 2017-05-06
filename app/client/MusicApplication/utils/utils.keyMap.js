@@ -2,237 +2,378 @@ const keyMap = [
   {
     active: false,
     keyCode: 192,
-    key: '`'
+    key: '`',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 49,
-    key: '1'
+    key: '1',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 50,
-    key: '2'
+    key: '2',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 51,
-    key: '3'
+    key: '3',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 52,
-    key: '4'
+    key: '4',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 53,
-    key: '5'
+    key: '5',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 54,
-    key: '6'
+    key: '6',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 55,
-    key: '7'
+    key: '7',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 56,
-    key: '8'
+    key: '8',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 57,
-    key: '9'
+    key: '9',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 48,
-    key: '0'
+    key: '0',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 189,
-    key: '-'
+    key: '-',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 187,
-    key: '='
+    key: '=',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 81,
-    key: 'q'
+    key: 'q',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 87,
-    key: 'w'
+    key: 'w',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 69,
-    key: 'e'
+    key: 'e',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 82,
-    key: 'r'
+    key: 'r',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 84,
-    key: 't'
+    key: 't',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 89,
-    key: 'y'
+    key: 'y',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 85,
-    key: 'u'
+    key: 'u',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 73,
-    key: 'i'
+    key: 'i',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 79,
-    key: 'o'
+    key: 'o',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 80,
-    key: 'p'
+    key: 'p',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 219,
-    key: '['
+    key: '[',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 221,
-    key: ']'
+    key: ']',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 220,
-    key: '\\'
+    key: '\\',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 65,
-    key: 'a'
+    key: 'a',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 83,
-    key: 's'
+    key: 's',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 68,
-    key: 'd'
+    key: 'd',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 70,
-    key: 'f'
+    key: 'f',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 71,
-    key: 'g'
+    key: 'g',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 72,
-    key: 'h'
+    key: 'h',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 74,
-    key: 'j'
+    key: 'j',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 75,
-    key: 'k'
+    key: 'k',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 76,
-    key: 'l'
+    key: 'l',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 186,
-    key: ';'
+    key: ';',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 222,
-    key: '\''
+    key: '\'',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 90,
-    key: 'z'
+    key: 'z',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 88,
-    key: 'x'
+    key: 'x',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 67,
-    key: 'c'
+    key: 'c',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 86,
-    key: 'v'
+    key: 'v',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 66,
-    key: 'b'
+    key: 'b',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 78,
-    key: 'n'
+    key: 'n',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 77,
-    key: 'm'
+    key: 'm',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 188,
-    key: ','
+    key: ',',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 190,
-    key: '.'
+    key: '.',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   },
   {
     active: false,
     keyCode: 191,
-    key: '/'
+    key: '/',
+    steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
+    playbackRate: 1,
+    buffer: undefined
   }
 ];
 export default keyMap;

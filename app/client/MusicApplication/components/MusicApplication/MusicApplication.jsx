@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Qwerty from '../Qwerty/Qwerty';
 import SoundBankContainer from '../../containers/SoundBankContainer';
-import Track from '../Track/Track';
+import TrackContainer from '../../containers/TrackContainer';
+import play from '../../utils/utils.play';
 
 class MusicApplication extends Component {
 
@@ -19,25 +20,25 @@ class MusicApplication extends Component {
 
   isKeyActive = (keyCode) => {
     const { keys } = this.props;
-    return keys.filter(obj => obj.active && obj.keyCode === keyCode).length
+    return keys.filter(obj => obj.active && obj.keyCode === keyCode)
   };
 
   isKeyWhiteListed = (keyCode) => {
     const { keys } = this.props;
-    return keys.filter(obj => obj.keyCode === keyCode).length
+    return keys.filter(obj => obj.keyCode === keyCode)
   };
 
   handleKeyUp = (e) => {
     const { keyCode } = e;
     const { isKeyActive, isKeyWhiteListed } = this;
-    const { 
-      soundBank: {
-        visible: soundBankVisible
-      }
+    const {
+      audioMaster: { ctx, master },
+      soundBank: { visible: soundBankVisible }
     } = this.props;
-    if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
-      if (isKeyActive(keyCode)) {
-        console.log('punch');
+    const key = isKeyActive(keyCode);
+    if (isKeyWhiteListed(keyCode).length && !soundBankVisible) {
+      if (key.length) {
+        play(ctx, master, key[0]);
       }
     }
   };
@@ -46,13 +47,12 @@ class MusicApplication extends Component {
     const { keyCode } = e;
     const {
       handleSoundbankShow,
-      soundBank: {
-        visible: soundBankVisible
-      }
+      soundBank: { visible: soundBankVisible }
     } = this.props;
     const { isKeyActive, isKeyWhiteListed } = this;
-    if (isKeyWhiteListed(keyCode) && !soundBankVisible) {
-      if (!isKeyActive(keyCode)) {
+    const key = isKeyActive(keyCode);
+    if (isKeyWhiteListed(keyCode).length && !soundBankVisible) {
+      if (!key.length) {
         handleSoundbankShow(e);
       }
     }
@@ -65,30 +65,23 @@ class MusicApplication extends Component {
     } = this;
 
     const {
-      audioMaster,
       keys,
-      handleKeyDeactivate,
       soundBank: {
         visible: soundBankVisible
       }
     } = this.props;
 
-    const activeKeys = keys.filter(key => key !== undefined && key.active);
-
     return (
       <div>
-        <Qwerty 
+        <Qwerty
           keys={keys}
           handleClick={handleKeyDown}
         />
         {soundBankVisible &&
           <SoundBankContainer />
         }
-        {!!activeKeys.length &&
-          <Track 
-            keys={activeKeys} 
-            handleKeyDeactivate={handleKeyDeactivate}
-          />
+        {!!keys.filter(key => key !== undefined && key.active).length &&
+          <TrackContainer />
         }
       </div>
     );

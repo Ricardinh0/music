@@ -7,7 +7,6 @@ import {
   soundbankShow
 } from '../actions/actionCreators';
 import { getAudioMaster } from '../reducers/audioMaster';
-import { getUI } from '../reducers/ui';
 import { getKeys } from '../reducers/keys';
 import { getSoundBank } from '../reducers/soundBank';
 import MusicApplication from '../components/MusicApplication/MusicApplication';

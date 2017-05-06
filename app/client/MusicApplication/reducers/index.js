@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
-import ui from './ui';
+import audioMaster from './audioMaster';
 import keys from './keys';
 import soundBank from './soundBank';
-import audioMaster from './audioMaster';
+import track from './track';
+import ui from './ui';
 
 const rootReducer = combineReducers({
   audioMaster,
   keys,
   soundBank,
+  track,
   ui
 });
 

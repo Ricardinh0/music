@@ -21,6 +21,11 @@ export const keyDeactivate = data => ({
   data
 });
 
+export const updateKeyStep = data => ({
+  type: types.MUSIC_APP_KEY_UPDATE_STEP,
+  data
+});
+
 export const soundbankLoadFile = data => (
   (dispatch) => {
     loadFileAndDecode({

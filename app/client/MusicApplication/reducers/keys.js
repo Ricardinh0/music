@@ -47,6 +47,24 @@ const keys = (state = {}, action) => {
         ...state.slice(index + 1)
       ];
     }
+    case types.MUSIC_APP_KEY_UPDATE_STEP: {
+      const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
+      return [
+        ...state.slice(0, index),
+        ...[state.map((obj, i) => {
+          if (i === index) {
+            return {
+              ...obj,
+              steps: obj.steps.map((step, j) => (
+                j === action.data.index ? action.data.checked : step
+              ))
+            };
+          }
+          return obj;
+        })[index]],
+        ...state.slice(index + 1)
+      ];
+    }
     default:
       return state;
   }

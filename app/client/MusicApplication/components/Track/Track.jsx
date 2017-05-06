@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import Channel from '../Channel/Channel';
 
 class Track extends Component {
 
-  handleDelete = (e) => {
+  handleDelete = e => {
     const { target } = e;
     const { handleKeyDeactivate } = this.props;
     const keyCode = parseInt(target.getAttribute('data-key-code'));
@@ -17,17 +18,20 @@ class Track extends Component {
     } = this;
 
     const {
-      keys
+      keys,
+      handleStepUpdate
     } = this.props;
 
     return (
       <div>
         <h1>Track</h1>
-        {keys.map((key, i) =>
-          <div key={i}>
-            <span>{key.keyCode}</span>
-            <button onClick={handleDelete} data-key-code={key.keyCode}>Delete</button>
-          </div>
+        {keys.map((data, i) =>
+          <Channel
+            key={i}
+            {...data}
+            handleDelete={handleDelete}
+            handleStepUpdate={handleStepUpdate}
+          />
         )}
       </div>
     );
