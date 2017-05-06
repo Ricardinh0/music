@@ -15,8 +15,8 @@ class Metronome extends Component {
 
   handleKeyUp = e => {
     const { soundBank: { visible: soundBankVisible } } = this.props;
-    if (!soundBankVisible) {
-      console.log(e);
+    if (!soundBankVisible && e.keyCode === 32) {
+      console.log('PLAY PLAY PLAY');
     }
   }
 

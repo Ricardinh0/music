@@ -4,6 +4,23 @@ import styles from './styles.scss';
 
 class SoundBank extends Component {
 
+  componentWillMount() {
+    const { handleKeyDown } = this;
+    document.addEventListener('keydown', handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    const { handleKeyDown } = this;
+    document.removeEventListener('keydown', handleKeyDown);
+  }
+
+  handleKeyDown = e => {
+    const { handleCancel } = this;
+    if (e.keyCode === 27) {
+      handleCancel();
+    }
+  }
+
   handleFileChange = e => {
     const {
       audioMaster,
