@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 
 class Channel extends Component {
 
+  shouldComponentUpdate(nextProps) {
+    //  BUG WATCH
+    return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+  }
+
   handleChange = e => {
     const { target } = e;
     const { handleStepUpdate, keyCode } = this.props;
