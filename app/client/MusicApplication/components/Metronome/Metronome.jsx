@@ -3,6 +3,8 @@ import play from '../../utils/utils.play';
 import requestAnimationFrame from '../../utils/utils.requestAnimationFrame';
 import { getSchedule } from '../../utils/utils.metronome';
 
+let schedule = {};
+
 class Metronome extends Component {
 
   constructor(props) {
@@ -35,8 +37,19 @@ class Metronome extends Component {
 
   tick = () => {
     const { isPlaying } = this.state;
-    const { audioMaster: { ctx } } = this.props;
-    console.log(getSchedule(ctx));
+    const { audioMaster: { ctx }, keys } = this.props;
+
+    schedule = getSchedule(ctx, 4);
+    
+    keys.filter(key => key !== undefined && key.active).map((key, i) => {
+      //console.log(key.steps);
+    });
+
+    // console.log(4, schedule[4], schedule[4].pop());
+    // console.log(8, schedule[8], schedule[8].pop());
+
+
+
     if (isPlaying) {
       requestAnimationFrame(this.tick)
     }
