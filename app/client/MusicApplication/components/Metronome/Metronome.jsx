@@ -14,16 +14,24 @@ class Metronome extends Component {
   }
 
   handleKeyUp = e => {
-    const { soundBank: { visible: soundBankVisible } } = this.props;
+    const { 
+      isPlaying, 
+      soundBank: { visible: soundBankVisible },
+      handleStop,
+      handlePlay
+    } = this.props;
     if (!soundBankVisible && e.keyCode === 32) {
-      console.log('PLAY PLAY PLAY');
+      isPlaying ? handleStop() : handlePlay();
     }
   }
 
   render() {
+    const {
+      isPlaying,
+    } = this.props;
     return (
       <div>
-        Metronome
+        <span>{`${isPlaying}`}</span>
       </div>
     );
   }

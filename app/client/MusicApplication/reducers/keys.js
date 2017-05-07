@@ -1,6 +1,9 @@
 import * as types from '../constants/actionTypes';
 
 export const getKeys = state => ({ keys: state.keys });
+export const getActiveKeys = state => ({
+  keys: state.keys.filter(key => key !== undefined && key.active)
+});
 
 const toggleActivity = (state, action) => {
   const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);

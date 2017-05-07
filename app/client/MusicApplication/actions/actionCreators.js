@@ -21,9 +21,17 @@ export const keyDeactivate = data => ({
   data
 });
 
-export const updateKeyStep = data => ({
+export const keyUpdateStep = data => ({
   type: types.MUSIC_APP_KEY_UPDATE_STEP,
   data
+});
+
+export const metronomeStop = () => ({
+  type: types.METRONOME_STOP
+});
+
+export const metronomePlay = () => ({
+  type: types.METRONOME_PLAY
 });
 
 export const soundbankLoadFile = data => (

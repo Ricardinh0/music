@@ -1,23 +1,22 @@
 import { connect } from 'react-redux';
 import {
   keyDeactivate,
-  updateKeyStep
+  keyUpdateStep
 } from '../actions/actionCreators';
 import { getTrack } from '../reducers/track';
-import { getKeys } from '../reducers/keys';
+import { getActiveKeys } from '../reducers/keys';
 import Track from '../components/Track/Track';
 
 const mapStateToProps = (state) => {
-  const keys = getKeys(state).keys.filter(key => key !== undefined && key.active);
   return {
     ...getTrack(state),
-    keys
+    ...getActiveKeys(state)
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    handleStepUpdate: data => dispatch(updateKeyStep(data)),
+    handleStepUpdate: data => dispatch(keyUpdateStep(data)),
     handleKeyDeactivate: e => dispatch(keyDeactivate(e))
   };
 };
