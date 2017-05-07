@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import play from '../../utils/utils.play';
+import requestAnimationFrame from '../../utils/utils.requestAnimationFrame';
 
 class Metronome extends Component {
 

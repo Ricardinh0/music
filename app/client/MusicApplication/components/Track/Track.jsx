@@ -25,10 +25,10 @@ class Track extends Component {
     return (
       <div>
         <h1>Track</h1>
-        {keys.map((data, i) =>
+        {keys.filter(key => key !== undefined && key.active).map((key, i) =>
           <Channel
             key={i}
-            {...data}
+            {...key}
             handleDelete={handleDelete}
             handleStepUpdate={handleStepUpdate}
           />

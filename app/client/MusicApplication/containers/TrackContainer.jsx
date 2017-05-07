@@ -4,13 +4,13 @@ import {
   keyUpdateStep
 } from '../actions/actionCreators';
 import { getTrack } from '../reducers/track';
-import { getActiveKeys } from '../reducers/keys';
+import { getKeys } from '../reducers/keys';
 import Track from '../components/Track/Track';
 
 const mapStateToProps = (state) => {
   return {
     ...getTrack(state),
-    ...getActiveKeys(state)
+    ...getKeys(state)
   };
 };
 
