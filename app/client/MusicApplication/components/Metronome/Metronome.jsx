@@ -8,7 +8,8 @@ class Metronome extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isPlaying: false
+      isPlaying: false,
+      bpm: 100
     }
   }
 
@@ -51,7 +52,7 @@ class Metronome extends Component {
   tick = (schedule = []) => {
     const { scheduler } = this;
     const { isPlaying } = this.state;
-    const { audioMaster: { ctx, master }, keys } = this.props;
+    const { audioMaster: { ctx, master }, keys, bpm } = this.props;
     const timeStamp = ctx.currentTime;
 
     if (keys.filter(key => key.active).length) {
@@ -64,18 +65,19 @@ class Metronome extends Component {
           timeStamp: schedule[0].time,
           ratio: 16,
           beat: schedule[0].beat,
-          bpm: 100,
+          bpm,
           request: 3
         });
         //  Remove the reference event as this has already been scheduled
-        scheduler(ctx, master, keys, schedule.splice(0, 1));
+        schedule.splice(0, 1);
+        scheduler(ctx, master, keys, schedule);
       }
       if (!schedule.length) {
         schedule = getSchedule({
           timeStamp,
           ratio: 16,
           beat: 0,
-          bpm: 100,
+          bpm,
           request: 3
         });
         scheduler(ctx, master, keys, schedule);
@@ -99,13 +101,31 @@ class Metronome extends Component {
     }
   }
 
+  handleChange = e => {
+    const { 
+      target: {
+        value: bpm 
+      }
+    } = e;
+    const { handleUpdateBPM } = this.props;
+    handleUpdateBPM({
+      bpm
+    });
+  }
+
   render() {
     const {
+      handleChange
+    } = this;
+    const {
       isPlaying,
+      bpm
     } = this.props;
     return (
       <div>
         <span>{`${isPlaying}`}</span>
+        <input type="range" min="80" max="180" defaultValue={100} onChange={handleChange} />
+        <span>{`${bpm}`}</span>
       </div>
     );
   }

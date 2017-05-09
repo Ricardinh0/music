@@ -34,6 +34,11 @@ export const metronomePlay = () => ({
   type: types.METRONOME_PLAY
 });
 
+export const metronomeUpdateBPM = data => ({
+  type: types.METRONOME_BPM_UPDATE,
+  data
+});
+
 export const soundbankLoadFile = data => (
   (dispatch) => {
     loadFileAndDecode({

@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import {
   metronomeStop,
-  metronomePlay
+  metronomePlay,
+  metronomeUpdateBPM
 } from '../actions/actionCreators';
 import { getMetronome } from '../reducers/metronome';
 import { getAudioMaster } from '../reducers/audioMaster';
@@ -18,7 +19,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   handleStop: () => dispatch(metronomeStop()),
-  handlePlay: () => dispatch(metronomePlay())
+  handlePlay: () => dispatch(metronomePlay()),
+  handleUpdateBPM: data => dispatch(metronomeUpdateBPM(data))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Metronome);

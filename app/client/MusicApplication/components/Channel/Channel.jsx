@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Gain from '../Gain/Gain';
 
 class Channel extends Component {
 
@@ -17,9 +18,12 @@ class Channel extends Component {
     });
   };
 
+  handleKeyPress = e => false;
+
   render() {
     const {
-      handleChange
+      handleChange,
+      handleKeyPress
     } = this;
 
     const {
@@ -31,8 +35,9 @@ class Channel extends Component {
     return (
       <div>
         <span>{keyCode}</span>
+        <Gain />
         <div>{steps.map((step, i) =>
-          <input type="checkbox" key={i} name={i} checked={step} onChange={handleChange} />
+          <input type="checkbox" key={i} name={i} checked={step} onChange={handleChange} onKeyPress={handleKeyPress} />
         )}</div>
         <button onClick={handleDelete} data-key-code={keyCode}>Delete</button>
       </div>
