@@ -3,8 +3,6 @@ import play from '../../utils/utils.play';
 import requestAnimationFrame from '../../utils/utils.requestAnimationFrame';
 import { getSchedule } from '../../utils/utils.metronome';
 
-let schedule = {};
-
 class Metronome extends Component {
 
   constructor(props) {
@@ -15,14 +13,17 @@ class Metronome extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { isPlaying } = nextProps;
-    this.setState({ 
-      isPlaying: isPlaying
-    }, () => {
-      if (isPlaying) {
-        this.tick();
-      }
-    });
+    const { isPlaying: nextIsPlaying } = nextProps;
+    const { isPlaying } = this.state;
+    if (isPlaying !== nextIsPlaying) {
+      this.setState({ 
+        isPlaying: nextIsPlaying
+      }, () => {
+        if (!isPlaying) {
+          this.tick();
+        }
+      });
+    }
   }
 
   componentWillMount() {
@@ -35,23 +36,54 @@ class Metronome extends Component {
     document.removeEventListener('keyup', handleKeyUp);
   }
 
-  tick = () => {
+  scheduler = (ctx, inputNode, keys, schedule) => {
+    for (var i = 0; i < schedule.length; i += 1) {
+      let index = schedule[i].beat%16;
+      const activeKeyList = keys.filter(key => {
+        return key.active && key.steps[index];
+      });
+      for (var j = 0; j < activeKeyList.length; j += 1) {
+        play(ctx, inputNode, activeKeyList[j], schedule[i].time);
+      }
+    }
+  }
+
+  tick = (schedule = []) => {
+    const { scheduler } = this;
     const { isPlaying } = this.state;
-    const { audioMaster: { ctx }, keys } = this.props;
+    const { audioMaster: { ctx, master }, keys } = this.props;
+    const timeStamp = ctx.currentTime;
 
-    schedule = getSchedule(ctx, 4);
-    
-    keys.filter(key => key !== undefined && key.active).map((key, i) => {
-      //console.log(key.steps);
-    });
+    if (keys.filter(key => key.active).length) {
 
-    // console.log(4, schedule[4], schedule[4].pop());
-    // console.log(8, schedule[8], schedule[8].pop());
-
-
+      if (schedule.length && timeStamp > schedule[0].time) {
+        //  remove all scheduled events apart from the last for reference
+        schedule.splice(0, schedule.length - 1);
+        //  Update the schedule using the last event as reference
+        schedule = getSchedule({
+          timeStamp: schedule[0].time,
+          ratio: 16,
+          beat: schedule[0].beat,
+          bpm: 100,
+          request: 3
+        });
+        //  Remove the reference event as this has already been scheduled
+        scheduler(ctx, master, keys, schedule.splice(0, 1));
+      }
+      if (!schedule.length) {
+        schedule = getSchedule({
+          timeStamp,
+          ratio: 16,
+          beat: 0,
+          bpm: 100,
+          request: 3
+        });
+        scheduler(ctx, master, keys, schedule);
+      }
+    }
 
     if (isPlaying) {
-      requestAnimationFrame(this.tick)
+      requestAnimationFrame(() => this.tick(schedule))
     }
   }
 
@@ -71,7 +103,6 @@ class Metronome extends Component {
     const {
       isPlaying,
     } = this.props;
-
     return (
       <div>
         <span>{`${isPlaying}`}</span>

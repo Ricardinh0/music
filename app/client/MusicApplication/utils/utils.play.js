@@ -1,8 +1,12 @@
-export default (ctx, master, key) => {
+export default (ctx, inputNode, key, schedule) => {
   const sound = ctx.createBufferSource();
-  const inputNode = master;
+  const node = inputNode;
   sound.buffer = key.buffer;
   sound.playbackRate.value = key.playbackRate;
-  sound.connect(inputNode);
-  sound.start();
+  sound.connect(node);
+  if (schedule) {
+    sound.start(schedule);
+  } else {
+    sound.start();
+  }
 };

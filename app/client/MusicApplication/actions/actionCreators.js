@@ -61,6 +61,7 @@ export const soundbankLoadFile = data => (
 export const soundbankShow = data => (
   (dispatch) => {
     dispatch(keyActivate(data));
+    dispatch(metronomeStop());
     dispatch({
       type: types.SOUNDBANK_SHOW,
       data
