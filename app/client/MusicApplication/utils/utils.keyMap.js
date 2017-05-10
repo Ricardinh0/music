@@ -6,7 +6,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -15,7 +23,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -24,7 +40,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -33,7 +57,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -42,7 +74,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -51,7 +91,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -60,7 +108,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -69,7 +125,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -78,7 +142,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -87,7 +159,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -96,7 +176,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -105,7 +193,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -114,7 +210,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -123,7 +227,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -132,7 +244,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 64,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -141,7 +261,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -150,7 +278,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -159,7 +295,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -168,7 +312,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -177,7 +329,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -186,7 +346,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -195,7 +363,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -204,7 +380,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -213,7 +397,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -222,7 +414,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -231,7 +431,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -240,7 +448,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -249,7 +465,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -258,7 +482,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -267,7 +499,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -276,7 +516,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -285,7 +533,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -294,7 +550,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -303,7 +567,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -312,7 +584,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -321,7 +601,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -330,7 +618,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -339,7 +635,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -348,7 +652,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -357,7 +669,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -366,7 +686,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -375,7 +703,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -384,7 +720,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -393,7 +737,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -402,7 +754,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -411,7 +771,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   },
   {
     active: false,
@@ -420,7 +788,15 @@ const keyMap = [
     steps: [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0],
     ratio: 16,
     playbackRate: 1,
-    buffer: undefined
+    buffer: undefined,
+    mixerInput: undefined,
+    mixerOutput: undefined,
+    gain: 1,
+    bass: 1,
+    mid: 1,
+    tre: 1,
+    pan: 1,
+    filters: []
   }
 ];
 export default keyMap;

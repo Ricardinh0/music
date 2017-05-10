@@ -47,7 +47,7 @@ const keys = (state = {}, action) => {
         ...state.slice(index + 1)
       ];
     }
-    case types.MUSIC_APP_KEY_UPDATE_STEP: {
+    case types.MUSIC_APP_KEY_STEP_UPDATE: {
       const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
       return [
         ...state.slice(0, index),
@@ -58,6 +58,22 @@ const keys = (state = {}, action) => {
               steps: obj.steps.map((step, j) => (
                 j === action.data.index ? action.data.checked : step
               ))
+            };
+          }
+          return obj;
+        })[index]],
+        ...state.slice(index + 1)
+      ];
+    }
+    case types.MUSIC_APP_KEY_LEVEL_UPDATE: {
+      const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
+      return [
+        ...state.slice(0, index),
+        ...[state.map((obj, i) => {
+          if (i === index) {
+            return {
+              ...obj,
+              [action.data.name]: action.data.value
             };
           }
           return obj;

@@ -22,7 +22,12 @@ export const keyDeactivate = data => ({
 });
 
 export const keyUpdateStep = data => ({
-  type: types.MUSIC_APP_KEY_UPDATE_STEP,
+  type: types.MUSIC_APP_KEY_STEP_UPDATE,
+  data
+});
+
+export const keyUpdateLevel = data => ({
+  type: types.MUSIC_APP_KEY_LEVEL_UPDATE,
   data
 });
 

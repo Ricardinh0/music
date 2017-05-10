@@ -5,12 +5,14 @@ import {
 } from '../actions/actionCreators';
 import { getTrack } from '../reducers/track';
 import { getKeys } from '../reducers/keys';
+import { getAudioMaster } from '../reducers/audioMaster';
 import Track from '../components/Track/Track';
 
 const mapStateToProps = (state) => {
   return {
     ...getTrack(state),
-    ...getKeys(state)
+    ...getKeys(state),
+    ...{ ...getAudioMaster(state) }.audioMaster
   };
 };
 

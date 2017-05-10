@@ -1,33 +1,35 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
-class Gain extends Component {
+class Gain extends PureComponent {
 
   constructor(props) {
     super(props);
+    const { ctx } = props;
     this.state = {
-      value: 1
-    }
-    // this.inputNode = ctx.createGain(); // On mount
-    // this.inputNode.gain.value = parseFloat(this.model.level()); // On new props
+      inputNode: ctx.createGain()
+    };
   }
 
-  handleChange = e => {
-    this.setState({
-      value: e.target.value
-    })
+  componentWillMount() {
+    const { inputNode } = this.state;
+    inputNode.gain.value = 0.5;
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { inputNode } = this.state;
+    const { value } = nextProps;
+    inputNode.gain.value = value;
   }
 
   render() {
     const {
-      handleChange
-    } = this;
-    const {
-      value
-    } = this.state
+      value,
+      onChange
+    } = this.props;
     return (
       <div>
         <label>Gain</label>
-        <input type="range" min="0" max="1" step="0.01" defaultValue={value} onChange={handleChange} />
+        <input name="gain" type="range" min="0" max="1" step="0.01" defaultValue={value} onChange={onChange} />
         <output>{value}</output>
       </div>
     )

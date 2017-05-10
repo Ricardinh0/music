@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Mixer from '../Mixer/Mixer';
 import Gain from '../Gain/Gain';
 
 class Channel extends Component {
@@ -8,7 +9,7 @@ class Channel extends Component {
     return JSON.stringify(this.props) !== JSON.stringify(nextProps);
   }
 
-  handleChange = e => {
+  handleStepChange = e => {
     const { target } = e;
     const { handleStepUpdate, keyCode } = this.props;
     handleStepUpdate({
@@ -18,28 +19,56 @@ class Channel extends Component {
     });
   };
 
-  handleKeyPress = e => false;
+  handleLevelChange = e => {
+    const { target: { name, value } } = e;
+    const { handleLevelUpdate, keyCode, ctx } = this.props;
+    handleLevelUpdate({
+      keyCode,
+      name,
+      value
+    });
+  }
+
+  handleDelete = e => {
+    const { target } = e;
+    const { handleKeyDeactivate, keyCode } = this.props;
+    handleKeyDeactivate({
+      keyCode
+    });
+  }
+
 
   render() {
     const {
-      handleChange,
-      handleKeyPress
+      handleDelete,
+      handleStepChange,
+      handleLevelChange,
+      handleStepKeyPress
     } = this;
 
     const {
       steps,
       keyCode,
-      handleDelete
+      ctx,
+      gain,
+      bass,
+      mid,
+      tre,
+      pan
     } = this.props;
 
     return (
       <div>
         <span>{keyCode}</span>
-        <Gain />
+
+        <Mixer>
+          <Gain ctx={ctx} value={gain} onChange={handleLevelChange} />
+        </Mixer>
+
         <div>{steps.map((step, i) =>
-          <input type="checkbox" key={i} name={i} checked={step} onChange={handleChange} onKeyPress={handleKeyPress} />
+          <input type="checkbox" key={i} name={i} checked={step} onChange={handleStepChange} />
         )}</div>
-        <button onClick={handleDelete} data-key-code={keyCode}>Delete</button>
+        <button onClick={handleDelete}>Delete</button>
       </div>
     )
   }
