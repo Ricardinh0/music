@@ -1,6 +1,9 @@
 import * as types from '../constants/actionTypes';
 
 export const getKeys = state => ({ keys: state.keys });
+export const getActiveKeys = state => ({
+  keys: state.keys.filter(key => key !== undefined && key.active)
+});
 
 const toggleActivity = (state, action) => {
   const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
@@ -33,13 +36,21 @@ const keys = (state = {}, action) => {
       return toggleActivity(state, action);
     case types.MUSIC_APP_KEY_ADD_BUFFER: {
       const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
+      const {
+        data: {
+          buffer,
+          ctx
+        }
+      } = action;
       return [
         ...state.slice(0, index),
         ...[state.map((obj, i) => {
           if (i === index) {
             return {
               ...obj,
-              buffer: action.data.buffer
+              buffer,
+              channelInput: ctx.createGain(),
+              channelOutput: ctx.createGain()
             };
           }
           return obj;

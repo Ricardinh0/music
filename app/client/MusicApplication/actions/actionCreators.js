@@ -56,7 +56,8 @@ export const soundbankLoadFile = data => (
             type: types.MUSIC_APP_KEY_ADD_BUFFER,
             data: {
               buffer,
-              keyCode: data.keyCode
+              keyCode: data.keyCode,
+              ctx: data.ctx
             }
           });
           dispatch({

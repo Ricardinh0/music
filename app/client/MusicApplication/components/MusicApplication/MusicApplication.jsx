@@ -81,9 +81,7 @@ class MusicApplication extends Component {
           <SoundBankContainer />
         }
         {!!keys.filter(key => key !== undefined && key.active).length &&
-          <TrackContainer 
-            soundBankVisible={soundBankVisible}
-          />
+          <TrackContainer />
         }
       </div>
     );

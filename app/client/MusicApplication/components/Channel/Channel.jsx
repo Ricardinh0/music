@@ -1,8 +1,30 @@
 import React, { Component } from 'react';
 import Mixer from '../Mixer/Mixer';
 import Gain from '../Gain/Gain';
+import Pan from '../Pan/Pan';
+import Delay from '../Delay/Delay';
 
 class Channel extends Component {
+
+  constructor(props) {
+    super(props);
+    const { master, ctx, channelOutput } = props;
+    channelOutput.connect(master);
+    this.state = {
+      nodes: {
+        gain: ctx.createGain(),
+        pan: ctx.createStereoPanner()
+      }
+    }
+  }
+
+  componentDidMount() {
+    const { channelOutput, channelInput } = this.props;
+    const { nodes: { gain, pan } } = this.state;
+    pan.connect(channelOutput);
+    gain.connect(pan);
+    channelInput.connect(gain);
+  }
 
   shouldComponentUpdate(nextProps) {
     //  BUG WATCH
@@ -37,14 +59,23 @@ class Channel extends Component {
     });
   }
 
+  handleFilterDelete = () => {
+
+  }
+
 
   render() {
     const {
       handleDelete,
+      handleFilterDelete,
       handleStepChange,
       handleLevelChange,
       handleStepKeyPress
     } = this;
+
+    const {
+      nodes
+    } = this.state;
 
     const {
       steps,
@@ -54,16 +85,24 @@ class Channel extends Component {
       bass,
       mid,
       tre,
-      pan
+      pan,
+      filters,
+      channelInput,
+      channelOutput,
     } = this.props;
+
+    debugger;
 
     return (
       <div>
         <span>{keyCode}</span>
 
-        <Mixer>
-          <Gain ctx={ctx} value={gain} onChange={handleLevelChange} />
-        </Mixer>
+        <Gain value={gain} onChange={handleLevelChange} node={nodes.gain} />
+        <Pan value={pan} onChange={handleLevelChange} node={nodes.pan} />
+
+        <Delay onDelete={handleFilterDelete}/>
+
+        <FilterStack input={nodes.pan} output={channelOutput} filters={filters} />
 
         <div>{steps.map((step, i) =>
           <input type="checkbox" key={i} name={i} checked={step} onChange={handleStepChange} />

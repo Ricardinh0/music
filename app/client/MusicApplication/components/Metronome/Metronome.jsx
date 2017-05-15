@@ -44,7 +44,7 @@ class Metronome extends Component {
         return key.active && key.steps[index];
       });
       for (var j = 0; j < activeKeyList.length; j += 1) {
-        play(ctx, inputNode, activeKeyList[j], schedule[i].time);
+        play(ctx, activeKeyList[j].channelInput, activeKeyList[j], schedule[i].time);
       }
     }
   }

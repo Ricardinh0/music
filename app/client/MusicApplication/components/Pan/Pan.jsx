@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-class Gain extends PureComponent {
+class Pan extends PureComponent {
 
   constructor(props) {
     super(props);
@@ -13,7 +13,7 @@ class Gain extends PureComponent {
   componentWillReceiveProps(nextProps) {
     const { node } = this.state;
     const { value } = nextProps;
-    node.gain.value = value;
+    node.pan.value = value;
   }
 
   render() {
@@ -23,12 +23,12 @@ class Gain extends PureComponent {
     } = this.props;
     return (
       <div>
-        <label>Gain</label>
-        <input name="gain" type="range" min="0" max="1" step="0.01" defaultValue={value} onChange={onChange} />
+        <label>Pan</label>
+        <input name="pan" type="range" min="-1" max="1" step="0.01" defaultValue={value} onChange={onChange} />
         <output>{value}</output>
       </div>
     )
   }
 };
 
-export default Gain;
+export default Pan;

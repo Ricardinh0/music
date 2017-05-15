@@ -4,14 +4,14 @@ import {
   keyUpdateStep
 } from '../actions/actionCreators';
 import { getTrack } from '../reducers/track';
-import { getKeys } from '../reducers/keys';
+import { getActiveKeys } from '../reducers/keys';
 import { getAudioMaster } from '../reducers/audioMaster';
 import Track from '../components/Track/Track';
 
 const mapStateToProps = (state) => {
   return {
     ...getTrack(state),
-    ...getKeys(state),
+    ...getActiveKeys(state),
     ...{ ...getAudioMaster(state) }.audioMaster
   };
 };
