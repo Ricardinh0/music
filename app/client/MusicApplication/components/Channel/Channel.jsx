@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Mixer from '../Mixer/Mixer';
 import Gain from '../Gain/Gain';
 import Pan from '../Pan/Pan';
-import Delay from '../Delay/Delay';
+import FilterStack from '../FilterStack/FilterStack';
 
 class Channel extends Component {
 
@@ -43,11 +43,22 @@ class Channel extends Component {
 
   handleLevelChange = e => {
     const { target: { name, value } } = e;
-    const { handleLevelUpdate, keyCode, ctx } = this.props;
+    const { handleLevelUpdate, keyCode } = this.props;
     handleLevelUpdate({
       keyCode,
       name,
       value
+    });
+  }
+
+  handleFilterChange = e => {
+    const { target: { name, value, id } } = e;
+    const { handleFilterUpdate, keyCode } = this.props;
+    handleFilterUpdate({
+      keyCode,
+      name,
+      value,
+      id
     });
   }
 
@@ -58,18 +69,14 @@ class Channel extends Component {
       keyCode
     });
   }
-
-  handleFilterDelete = () => {
-
-  }
-
-
+  
   render() {
     const {
       handleDelete,
       handleFilterDelete,
       handleStepChange,
       handleLevelChange,
+      handleFilterChange,
       handleStepKeyPress
     } = this;
 
@@ -86,12 +93,10 @@ class Channel extends Component {
       mid,
       tre,
       pan,
-      filters,
+      filterList,
       channelInput,
       channelOutput,
     } = this.props;
-
-    debugger;
 
     return (
       <div>
@@ -100,13 +105,18 @@ class Channel extends Component {
         <Gain value={gain} onChange={handleLevelChange} node={nodes.gain} />
         <Pan value={pan} onChange={handleLevelChange} node={nodes.pan} />
 
-        <Delay onDelete={handleFilterDelete}/>
-
-        <FilterStack input={nodes.pan} output={channelOutput} filters={filters} />
+        <FilterStack
+          ctx={ctx}
+          input={nodes.pan}
+          output={channelOutput}
+          filterList={filterList}
+          handleFilterChange={handleFilterChange}
+        />
 
         <div>{steps.map((step, i) =>
           <input type="checkbox" key={i} name={i} checked={step} onChange={handleStepChange} />
         )}</div>
+        
         <button onClick={handleDelete}>Delete</button>
       </div>
     )
