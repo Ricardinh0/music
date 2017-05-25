@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Delay from '../Delay/Delay';
-import Filter from './factory';
-
+import Phaser from '../Phaser/Phaser';
 
 class FilterStack extends Component {
 
@@ -30,6 +29,11 @@ class FilterStack extends Component {
           index={0}
           {...filterList[0]}
           onChange={handleFilterChange}
+        />
+        <Phaser
+          ctx={ctx}
+          input={input}
+          output={output}
         />
       </div>
     );
