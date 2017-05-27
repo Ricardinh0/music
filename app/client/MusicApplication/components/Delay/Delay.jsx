@@ -15,22 +15,19 @@ import React, { PureComponent } from 'react';
 */
 class Delay extends PureComponent {
 
-  static defaultProps = {
-    delay: 0.5,
-    feedback: 0.6,
-    filter: 1000
-  }
-
   constructor(props) {
     super(props);
-    const delayNode = props.ctx.createDelay();
-    const feedbackNode = props.ctx.createGain();
-    const filterNode = props.ctx.createBiquadFilter();
+    const {
+      ctx
+    } = props;
+    this.delayNode = ctx.createDelay();
+    this.feedbackNode = ctx.createGain();
+    this.filterNode = ctx.createBiquadFilter();
     this.state = {
-      delayNode,
-      feedbackNode,
-      filterNode
-    }
+      delay: 0.5,
+      feedback: 0.6,
+      filter: 1000
+    };
   }
 
   componentDidMount() {
@@ -38,6 +35,11 @@ class Delay extends PureComponent {
       delayNode,
       feedbackNode,
       filterNode
+    } = this;
+    const { 
+      delay,
+      feedback,
+      filter,
     } = this.state;
     const { 
       input,
@@ -53,62 +55,80 @@ class Delay extends PureComponent {
     // Set up "Route C" (see above)
     input.connect(output);
     //
-    delayNode.delayTime.value = 0.5;
-    feedbackNode.gain.value = 0.5;
-    filterNode.frequency.value = 300;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { delayNode, feedbackNode, filterNode } = this.state;
-    const { delay, feedback, filter } = nextProps;
     delayNode.delayTime.value = delay;
     feedbackNode.gain.value = feedback;
     filterNode.frequency.value = filter;
   }
 
+  onChange = (e) => {
+    const { target: { name, value }} = e;
+    const { delayNode, feedbackNode, filterNode } = this;
+    this.setState({
+      [name]: value
+    }, () => {
+      switch (name) {
+        case 'delay':
+          delayNode.delayTime.value = value;
+          break;
+        case 'feedback':
+          feedbackNode.gain.value = value;
+          break;
+        case 'filter':
+          filterNode.frequency.value = value;
+          break;
+      }
+    })
+  }
+
   render() {
     const {
-      onChange,
+      onChange
+    } = this;
+    const {
       delay,
       feedback,
-      filter,
-      index,
-      type
-    } = this.props;
+      filter
+    } = this.state;
 
     return (
       <div>
         <h3>Delay</h3>
-        <input
-          name="delay"
-          id={index + '_delay'}
-          type="range"
-          step="0.01"
-          min="0"
-          max="1"
-          defaultValue={delay}
-          onChange={onChange}
-        />
-        <input
-          name="feedback"
-          id={index + '_feedback'}
-          type="range"
-          step="0.01"
-          min="0"
-          max="1"
-          defaultValue={feedback}
-          onChange={onChange}
-        />
-        <input
-          name="filter"
-          id={index + '_filter'}
-          type="range"
-          step="10"
-          min="0"
-          max="2000"
-          defaultValue={filter}
-          onChange={onChange}
-        />
+        <div>
+          <input
+            name="delay"
+            type="range"
+            step="0.01"
+            min="0"
+            max="1"
+            defaultValue={delay}
+            onChange={onChange}
+          />
+          <output>{delay}</output>
+        </div>
+        <div>
+          <input
+            name="feedback"
+            type="range"
+            step="0.01"
+            min="0"
+            max="1"
+            defaultValue={feedback}
+            onChange={onChange}
+          />
+          <output>{feedback}</output>
+        </div>
+        <div>
+          <input
+            name="filter"
+            type="range"
+            step="10"
+            min="0"
+            max="2000"
+            defaultValue={filter}
+            onChange={onChange}
+          />
+          <output>{filter}</output>
+        </div>
         <button>Delete</button>
       </div>
     );

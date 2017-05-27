@@ -31,11 +31,6 @@ export const keyUpdateLevel = data => ({
   data
 });
 
-export const keyUpdateFilter = data => ({
-  type: types.MUSIC_APP_KEY_FILTER_UPDATE,
-  data
-});
-
 export const metronomeStop = () => ({
   type: types.METRONOME_STOP
 });

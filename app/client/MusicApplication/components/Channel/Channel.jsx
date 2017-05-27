@@ -10,17 +10,13 @@ class Channel extends Component {
     super(props);
     const { master, ctx, channelOutput } = props;
     channelOutput.connect(master);
-    this.state = {
-      nodes: {
-        gain: ctx.createGain(),
-        pan: ctx.createStereoPanner()
-      }
-    }
+    this.gain = ctx.createGain();
+    this.pan = ctx.createStereoPanner();
   }
 
   componentDidMount() {
     const { channelOutput, channelInput } = this.props;
-    const { nodes: { gain, pan } } = this.state;
+    const { gain, pan } = this;
     pan.connect(channelOutput);
     gain.connect(pan);
     channelInput.connect(gain);
@@ -51,17 +47,6 @@ class Channel extends Component {
     });
   }
 
-  handleFilterChange = e => {
-    const { target: { name, value, id } } = e;
-    const { handleFilterUpdate, keyCode } = this.props;
-    handleFilterUpdate({
-      keyCode,
-      name,
-      value,
-      id
-    });
-  }
-
   handleDelete = e => {
     const { target } = e;
     const { handleKeyDeactivate, keyCode } = this.props;
@@ -77,12 +62,10 @@ class Channel extends Component {
       handleStepChange,
       handleLevelChange,
       handleFilterChange,
-      handleStepKeyPress
+      handleStepKeyPress,
+      gain: gainNode,
+      pan: panNode
     } = this;
-
-    const {
-      nodes
-    } = this.state;
 
     const {
       steps,
@@ -96,21 +79,24 @@ class Channel extends Component {
       filterList,
       channelInput,
       channelOutput,
+      isPlaying
     } = this.props;
+
+    console.log(this.props);
 
     return (
       <div>
         <span>{keyCode}</span>
 
-        <Gain value={gain} onChange={handleLevelChange} node={nodes.gain} />
-        <Pan value={pan} onChange={handleLevelChange} node={nodes.pan} />
+        <Gain value={gain} onChange={handleLevelChange} node={gainNode} />
+        <Pan value={pan} onChange={handleLevelChange} node={panNode} />
 
         <FilterStack
           ctx={ctx}
-          input={nodes.pan}
+          input={panNode}
           output={channelOutput}
           filterList={filterList}
-          handleFilterChange={handleFilterChange}
+          isPlaying={isPlaying}
         />
 
         <div>{steps.map((step, i) =>

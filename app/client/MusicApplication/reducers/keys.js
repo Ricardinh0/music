@@ -92,30 +92,6 @@ const keys = (state = {}, action) => {
         ...state.slice(index + 1)
       ];
     }
-    case types.MUSIC_APP_KEY_FILTER_UPDATE: {
-      const index = state.findIndex(obj => obj.keyCode === action.data.keyCode);
-      const id = action.data.id.split('_');
-      return [
-        ...state.slice(0, index),
-        ...[state.map((obj, i) => {
-          if (i === index) {
-            return {
-              ...obj,
-              filterList: [
-                ...obj.filterList.splice(0, id[0]),
-                ...[{
-                  ...obj.filterList[id[0]],
-                  [id[1]]: parseFloat(action.data.value)
-                }],
-                ...obj.filterList.splice(id[0] + 1)
-              ]
-            };
-          }
-          return obj;
-        })[index]],
-        ...state.slice(index + 1)
-      ];
-    }
     default:
       return state;
   }
