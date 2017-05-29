@@ -41,6 +41,7 @@ class Phaser extends PureComponent {
   componentWillReceiveProps(nextProps) {
     const { isPlaying: nextIsPlaying } = nextProps;
     const { isPlaying } = this.state;
+    //console.log(nextIsPlaying);
     if (isPlaying !== nextIsPlaying) {
       this.setState({ 
         isPlaying: nextIsPlaying
@@ -77,6 +78,13 @@ class Phaser extends PureComponent {
       frequency,
       phase
     } = this.state;
+    const {
+      onDelete,
+      index
+    } = this.props;
+
+    console.log(this.props.isPlaying);
+
     return (
       <div>
         <h3>Phaser</h3>
@@ -104,6 +112,7 @@ class Phaser extends PureComponent {
           />
           <output>{frequency}</output>
         </div>
+        <button name={index} onClick={onDelete}>Delete</button>
       </div>
     );
   }

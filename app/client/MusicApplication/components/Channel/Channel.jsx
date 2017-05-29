@@ -15,9 +15,8 @@ class Channel extends Component {
   }
 
   componentDidMount() {
-    const { channelOutput, channelInput } = this.props;
+    const { channelInput } = this.props;
     const { gain, pan } = this;
-    pan.connect(channelOutput);
     gain.connect(pan);
     channelInput.connect(gain);
   }

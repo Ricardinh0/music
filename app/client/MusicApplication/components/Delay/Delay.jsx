@@ -89,6 +89,10 @@ class Delay extends PureComponent {
       feedback,
       filter
     } = this.state;
+    const {
+      onDelete,
+      index
+    } = this.props;
 
     return (
       <div>
@@ -129,7 +133,7 @@ class Delay extends PureComponent {
           />
           <output>{filter}</output>
         </div>
-        <button>Delete</button>
+        <button name={index} onClick={onDelete}>Delete</button>
       </div>
     );
   }

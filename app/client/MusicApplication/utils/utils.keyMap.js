@@ -62,8 +62,8 @@ const keyMap = keyList.map(key => ({
   tre: 1,
   pan: 0,
   filterList: [
-    { type: 'delay', bypass: false },
-    { type: 'phaser', bypass: false }
+    { type: 'delay' },
+    { type: 'phaser' }
   ]
 }));
 
